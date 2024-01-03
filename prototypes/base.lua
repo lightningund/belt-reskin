@@ -10,9 +10,16 @@ local belt_animation_sets = {}
 local belt_tint = util.color("FFF")
 
 for prefix, properties in pairs(tiers) do
+	local settings_name = "belt-reskin-" .. prefix .. "color"
+
+	-- Of course, nothing is sacred, ultimate belts had to be a little bit goofy
+	if prefix == "original-ultimate-" then
+		settings_name = "belt-reskin-ultimate-color"
+	end
+
 	local col
-	if settings.startup["belt-reskin-" .. prefix .. "color"] then
-		col = settings.startup["belt-reskin-" .. prefix .. "color"].value
+	if settings.startup[settings_name] then
+		col = settings.startup[settings_name].value
 	else
 		col = util.color("ff8000")
 	end

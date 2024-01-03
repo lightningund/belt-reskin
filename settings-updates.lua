@@ -58,13 +58,6 @@ if mods["UltimateBelts"] then
 			setting_type = "startup",
 			default_value = {0, 255, 221},
 			order = "1e"
-		},
-		{
-			type = "color-setting",
-			name = "belt-reskin-original-ultimate-color",
-			setting_type = "startup",
-			default_value = {0, 255, 221},
-			order = "1f"
 		}
 	})
 end

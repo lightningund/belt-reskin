@@ -48,11 +48,11 @@ if mods["UltimateBelts"] then
 		fast = true,
 		suffix = "belt"
 	}
-	-- tiers["original-ultimate-"] = {
-	-- 	tint = util.color("00FFDD"),
-	-- 	fast = true,
-	-- 	suffix = "belt"
-	-- }
+	tiers["original-ultimate-"] = {
+		tint = util.color("00FFDD"),
+		fast = true,
+		suffix = "belt"
+	}
 end
 
 return tiers
