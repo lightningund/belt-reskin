@@ -1,17 +1,14 @@
 {
     "name": "belt-reskin",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "factorio_version": "1.1",
     "title": "Belt Reskin",
     "author": "lightningund",
     "dependencies": [
         "base",
-        "flib",
         "? UltimateBelts",
         "? miniloader",
-        "? LoaderRedux",
         "? deadlock-beltboxes-loaders",
-        "(?) deadlock-integrations",
-        "? vanilla-loaders-hd"
+        "(?) deadlock-integrations"
     ]
 }
