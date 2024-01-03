@@ -7,7 +7,6 @@
 
 -- Make our function host
 if not belt_reskin then belt_reskin = {} end
-belt_reskin.migration = require("migration")
 
 -- Ensure tint is normalized to between 0 and 1
 local function normalize_tint(tint)
