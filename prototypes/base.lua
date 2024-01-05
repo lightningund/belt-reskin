@@ -17,7 +17,7 @@ for prefix, properties in pairs(tiers) do
 		settings_name = "belt-reskin-ultimate-color"
 	end
 
-	local col
+	local col ---@type Color
 	if settings.startup[settings_name] then
 		col = settings.startup[settings_name].value
 	else
@@ -93,56 +93,6 @@ for prefix, properties in pairs(tiers) do
 	if entities.filter_miniloader then
 		belt_reskin.retint_mini_loader(entities.filter_miniloader, col)
 	end
-
-	-- -- Setup remnants
-	-- local remnants = data.raw["corpse"][prefix .. "transport-belt-remnants"]
-
-	-- if remnants then
-	-- 	if entities.belt then
-	-- 		remnants.icons = entities.belt.icons
-	-- 		remnants.icon = entities.belt.icon
-	-- 		remnants.icon_size = entities.belt.icon_size
-	-- 	end
-
-	-- 	remnants.animation = make_rotated_animation_variations_from_sheet(2, {
-	-- 		filename = "__prismatic-belts__/graphics/entity/base/" .. prefix .. "transport-belt/remnants/" .. prefix .. "transport-belt-remnants.png",
-	-- 		line_length = 1,
-	-- 		width = 54,
-	-- 		height = 52,
-	-- 		frame_count = 1,
-	-- 		variation_count = 1,
-	-- 		axially_symmetrical = false,
-	-- 		direction_count = 4,
-	-- 		shift = util.by_pixel(1, 0),
-	-- 		hr_version = {
-	-- 			filename = "__prismatic-belts__/graphics/entity/base/" .. prefix .. "transport-belt/remnants/hr-" .. prefix .. "transport-belt-remnants.png",
-	-- 			line_length = 1,
-	-- 			width = 106,
-	-- 			height = 102,
-	-- 			frame_count = 1,
-	-- 			variation_count = 1,
-	-- 			axially_symmetrical = false,
-	-- 			direction_count = 4,
-	-- 			shift = util.by_pixel(1, -0.5),
-	-- 			scale = 0.5
-	-- 		}
-	-- 	})
-	-- end
-
-	-- -- Setup logistics technologies
-	-- local technology = data.raw["technology"][properties.technology]
-
-	-- if technology then
-	-- 	local icons = {
-	-- 		{
-	-- 			icon = "__prismatic-belts__/graphics/technology/base/" .. properties.technology .. ".png",
-	-- 			icon_size = 256,
-	-- 			icon_mipmaps = 4,
-	-- 		}
-	-- 	}
-
-	-- 	technology.icons = icons
-	-- end
 end
 
 if mods["miniloader"] then
