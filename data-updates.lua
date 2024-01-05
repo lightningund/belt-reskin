@@ -3,6 +3,9 @@
 --
 -- See LICENSE.md in the project directory for license information.
 
+-- Core functions
+require("functions")
+
 local tiers = require "tiers"
 
 local belt_animation_sets = {}
