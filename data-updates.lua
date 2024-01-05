@@ -40,9 +40,9 @@ for prefix, properties in pairs(tiers) do
 
 		-- Miniloader
 		miniloader = data.raw["loader-1x1"][ml_prefix .. "miniloader-loader"],
-		miniloader_ins = data.raw["loader-1x1"][ml_prefix .. "miniloader-loader-inserter"],
+		miniloader_ins = data.raw["inserter"][ml_prefix .. "miniloader-inserter"],
 		filter_miniloader = data.raw["loader-1x1"][ml_prefix .. "filter-miniloader-loader"],
-		filter_miniloader_ins = data.raw["loader-1x1"][ml_prefix .. "filter-miniloader-loader-inserter"],
+		filter_miniloader_ins = data.raw["inserter"][ml_prefix .. "filter-miniloader-inserter"],
 
 		-- Deadlock Stacking Beltboxes and Compact loaders
 		deadlock_loader = data.raw["loader-1x1"][prefix .. properties.suffix .. "-loader"],
@@ -68,24 +68,26 @@ for prefix, properties in pairs(tiers) do
 		end
 	end
 
-	-- Reskin the Underground
-	if entities.underground then
-		entities.underground.structure = belt_reskin.underground_belt_sprite_set(col)
-	end
-
 	-- Reskin the Splitter
 	if entities.splitter then
 		belt_reskin.splitter_sprite_set(entities.splitter, col)
 	end
 
+	-- Reskin the Underground
+	if entities.underground then
+		entities.underground.structure = belt_reskin.underground_belt_sprite_set(col)
+	end
+
 	-- Retint Miniloader
 	if entities.miniloader then
 		belt_reskin.retint_mini_loader(entities.miniloader, col)
+		belt_reskin.retint_mini_loader_ins(entities.miniloader_ins, col)
 	end
 
 	-- Retint Filter Miniloader
 	if entities.filter_miniloader then
 		belt_reskin.retint_mini_loader(entities.filter_miniloader, col)
+		belt_reskin.retint_mini_loader_ins(entities.filter_miniloader_ins, col)
 	end
 
 	-- Retint Deadlock Loader

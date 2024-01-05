@@ -254,3 +254,8 @@ function belt_reskin.retint_mini_loader(entity, tint)
 	entity.structure.direction_out.sheets[2].tint = tint
 	entity.structure.direction_out.sheets[2].hr_version.tint = tint
 end
+
+function belt_reskin.retint_mini_loader_ins(entity, tint)
+	entity.platform_picture.sheets[2].tint = tint
+	entity.platform_picture.sheets[2].hr_version.tint = tint
+end
