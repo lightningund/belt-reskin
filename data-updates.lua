@@ -43,9 +43,6 @@ for prefix, properties in pairs(tiers) do
 		-- Deadlock Stacking Beltboxes and Compact loaders
 		deadlock_loader = data.raw["loader-1x1"][prefix .. properties.suffix .. "-loader"],
 		deadlock_beltbox = data.raw["furnace"][prefix .. properties.suffix .. "-beltbox"],
-
-		-- Krastorio
-		krastorio_loader = data.raw["loader-1x1"]["kr-" .. prefix .. "loader"],
 	}
 
 	-- Reskin the belts on all related entity types
