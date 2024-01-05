@@ -18,22 +18,27 @@ local tiers = {
 
 if mods["UltimateBelts"] then
 	tiers["ultra-fast-"] = {
+		ml_prefix = "ub-ultra-fast-",
 		fast = true,
 		suffix = "belt"
 	}
 	tiers["extreme-fast-"] = {
+		ml_prefix = "ub-extreme-fast-",
 		fast = true,
 		suffix = "belt"
 	}
 	tiers["ultra-express-"] = {
+		ml_prefix = "ub-ultra-express-",
 		fast = true,
 		suffix = "belt"
 	}
 	tiers["extreme-express-"] = {
+		ml_prefix = "ub-extreme-express-",
 		fast = true,
 		suffix = "belt"
 	}
 	tiers["ultimate-"] = {
+		ml_prefix = "ub-ultimate-",
 		fast = true,
 		suffix = "belt"
 	}

@@ -29,6 +29,8 @@ for prefix, properties in pairs(tiers) do
 
 	belt_animation_sets[prefix .. properties.suffix] = belt_reskin.transport_belt_animation_set(col, belt_tint, properties.fast)
 
+	local ml_prefix = properties.ml_prefix or prefix
+
 	-- Fetch entities
 	local entities = {
 		belt = data.raw["transport-belt"][prefix .. properties.suffix],
@@ -37,8 +39,10 @@ for prefix, properties in pairs(tiers) do
 		loader = data.raw["loader"][prefix .. "loader"],
 
 		-- Miniloader
-		miniloader = data.raw["loader-1x1"][prefix .. "miniloader-loader"],
-		filter_miniloader = data.raw["loader-1x1"][prefix .. "filter-miniloader-loader"],
+		miniloader = data.raw["loader-1x1"][ml_prefix .. "miniloader-loader"],
+		miniloader_ins = data.raw["loader-1x1"][ml_prefix .. "miniloader-loader-inserter"],
+		filter_miniloader = data.raw["loader-1x1"][ml_prefix .. "filter-miniloader-loader"],
+		filter_miniloader_ins = data.raw["loader-1x1"][ml_prefix .. "filter-miniloader-loader-inserter"],
 
 		-- Deadlock Stacking Beltboxes and Compact loaders
 		deadlock_loader = data.raw["loader-1x1"][prefix .. properties.suffix .. "-loader"],
@@ -74,16 +78,6 @@ for prefix, properties in pairs(tiers) do
 		belt_reskin.splitter_sprite_set(entities.splitter, col)
 	end
 
-	-- Retint Deadlock Loader
-	if entities.deadlock_loader then
-		belt_reskin.retint_deadlock_loader(entities.deadlock_loader, col)
-	end
-
-	-- Retint Deadlock Beltbox
-	if entities.deadlock_beltbox then
-		belt_reskin.retint_deadlock_beltbox(entities.deadlock_beltbox, col)
-	end
-
 	-- Retint Miniloader
 	if entities.miniloader then
 		belt_reskin.retint_mini_loader(entities.miniloader, col)
@@ -92,6 +86,16 @@ for prefix, properties in pairs(tiers) do
 	-- Retint Filter Miniloader
 	if entities.filter_miniloader then
 		belt_reskin.retint_mini_loader(entities.filter_miniloader, col)
+	end
+
+	-- Retint Deadlock Loader
+	if entities.deadlock_loader then
+		belt_reskin.retint_deadlock_loader(entities.deadlock_loader, col)
+	end
+
+	-- Retint Deadlock Beltbox
+	if entities.deadlock_beltbox then
+		belt_reskin.retint_deadlock_beltbox(entities.deadlock_beltbox, col)
 	end
 end
 
