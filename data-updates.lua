@@ -22,7 +22,7 @@ for prefix, properties in pairs(tiers) do
 
 	local col ---@type Color
 	if settings.startup[settings_name] then
-		col = settings.startup[settings_name].value
+		col = settings.startup[settings_name].value --[[@as Color]]
 	else
 		col = util.color("ff8000")
 	end
@@ -99,6 +99,11 @@ for prefix, properties in pairs(tiers) do
 	if entities.deadlock_beltbox then
 		belt_reskin.retint_deadlock_beltbox(entities.deadlock_beltbox, col)
 	end
+end
+
+local v_loader = data.raw["loader-1x1"]["loader-1x1"]
+if v_loader then
+	v_loader.belt_animation_set = belt_animation_sets["transport-belt"]
 end
 
 if mods["miniloader"] then
