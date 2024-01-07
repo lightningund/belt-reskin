@@ -24,7 +24,7 @@ Need
 		X Underground
 		X Splitters
 		X Beltboxes
-		Loaders (Vanilla)
+		X Loaders (Vanilla)
 		X Loaders (Deadlock)
 		X Loaders (mini) (sort of, the ultimate belts ones don't work for some reason)
 		X Filter Loaders (mini)
