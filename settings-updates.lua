@@ -23,7 +23,7 @@ data:extend({
 })
 
 if mods["UltimateBelts"] then
-	data:extend({
+	local ub_tiers = {
 		{
 			type = "color-setting",
 			name = "belt-reskin-ultra-fast-color",
@@ -59,5 +59,16 @@ if mods["UltimateBelts"] then
 			default_value = {0, 255, 221},
 			order = "1e"
 		}
-	})
+	}
+
+	if mods["UltimateBelts_Owoshima_And_Pankeko-Mod"] then
+		-- Pankeko UB colors
+		ub_tiers[1].default_value = {43, 194, 75}
+		ub_tiers[2].default_value = {196, 99, 47}
+		ub_tiers[3].default_value = {111, 45, 224}
+		ub_tiers[4].default_value = {61, 58, 240}
+		ub_tiers[5].default_value = {153, 153, 153}
+	end
+
+	data:extend(ub_tiers)
 end
