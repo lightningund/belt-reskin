@@ -85,42 +85,13 @@ for prefix, properties in pairs(tiers) do
 	end
 
 	-- Retint Miniloader
-	if entities.miniloader then
-		belt_reskin.retint_mini_loader(entities.miniloader, col)
-		belt_reskin.retint_mini_loader_ins(entities.miniloader_ins, col)
-	end
+	belt_reskin.retint_miniloader(entities, col)
 
-	-- Retint Filter Miniloader
-	if entities.filter_miniloader then
-		belt_reskin.retint_mini_loader(entities.filter_miniloader, col)
-		belt_reskin.retint_mini_loader_ins(entities.filter_miniloader_ins, col)
-	end
-
-	-- Retint Deadlock Loader
-	if entities.deadlock_loader then
-		belt_reskin.retint_deadlock_loader(entities.deadlock_loader, col)
-	end
-
-	-- Retint Deadlock Beltbox
-	if entities.deadlock_beltbox then
-		belt_reskin.retint_deadlock_beltbox(entities.deadlock_beltbox, col)
-	end
+	-- Retint Deadlock
+	belt_reskin.retint_deadlock(entities, col)
 
 	-- Retint AAI
-	if entities.aai_loader then
-		local ent = entities.aai_loader
-		ent.icons[2].tint = col
-		ent.structure.direction_in.sheets[3].tint = col
-		ent.structure.direction_in.sheets[3].hr_version.tint = col
-		ent.structure.direction_out.sheets[3].tint = col
-		ent.structure.direction_out.sheets[3].hr_version.tint = col
-
-		entities.aai_pipe.icons[2].tint = col
-
-		entities.aai_item.icons[2].tint = col
-
-		entities.aai_tech.icons[2].tint = col
-	end
+	belt_reskin.retint_aai(entities, col)
 end
 
 local v_loader = data.raw["loader-1x1"]["loader-1x1"]

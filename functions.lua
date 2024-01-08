@@ -189,42 +189,76 @@ function belt_reskin.splitter_sprite_set(entity, tint)
 	entity.structure_patch = nil
 end
 
--- Retint the deadlock loader entity
-function belt_reskin.retint_deadlock_loader(entity, tint)
-	entity.icons[2].tint = tint
+function belt_reskin.retint_miniloader(entities, tint)
+	local function retint(loader, ins, tint)
+		loader.structure.direction_in.sheets[2].tint = tint
+		loader.structure.direction_in.sheets[2].hr_version.tint = tint
+		loader.structure.direction_out.sheets[2].tint = tint
+		loader.structure.direction_out.sheets[2].hr_version.tint = tint
 
-	entity.structure.direction_in.sheets[3].tint = tint
-	entity.structure.direction_in.sheets[3].hr_version.tint = tint
-	entity.structure.direction_out.sheets[3].tint = tint
-	entity.structure.direction_out.sheets[3].hr_version.tint = tint
+		ins.platform_picture.sheets[2].tint = tint
+		ins.platform_picture.sheets[2].hr_version.tint = tint
+	end
+
+	local loader = entities.miniloader
+	local ins = entities.miniloader_ins
+	local f_loader = entities.filter_miniloader
+	local f_ins = entities.filter_miniloader_ins
+
+	if loader and ins then
+		retint(loader, ins, tint)
+	end
+
+	if f_loader and f_ins then
+		retint(f_loader, f_ins, tint)
+	end
 end
 
--- "average a colour with off-white, to get a brighter contrast colour for lamps and lights"
--- used by deadlock, using here for consistency
--- directly taken from deadlock-beltboxes-loaders by Deadlock989, Shane Madden
-local function brighter_colour(c)
-	local w = 240
-	return { r = math.floor((c.r + w)/2), g = math.floor((c.g + w)/2), b = math.floor((c.b + w)/2) }
+function belt_reskin.retint_deadlock(entities, tint)
+	-- "average a colour with off-white, to get a brighter contrast colour for lamps and lights"
+	-- used by deadlock, using here for consistency
+	-- directly taken from deadlock-beltboxes-loaders by Deadlock989, Shane Madden
+	local function brighter_colour(c)
+		local w = 240
+		return { r = math.floor((c.r + w)/2), g = math.floor((c.g + w)/2), b = math.floor((c.b + w)/2) }
+	end
+
+	local loader = entities.deadlock_loader
+	local beltbox = entities.deadlock_beltbox
+
+	if loader and beltbox then
+		loader.icons[2].tint = tint
+		loader.structure.direction_in.sheets[3].tint = tint
+		loader.structure.direction_in.sheets[3].hr_version.tint = tint
+		loader.structure.direction_out.sheets[3].tint = tint
+		loader.structure.direction_out.sheets[3].hr_version.tint = tint
+
+		beltbox.icons[2].tint = tint
+		beltbox.animation.layers[2].tint = tint
+		beltbox.animation.layers[2].hr_version.tint = tint
+		beltbox.working_visualisations[1].animation.tint = tint
+		beltbox.working_visualisations[1].animation.hr_version.tint = brighter_colour(tint)
+		beltbox.working_visualisations[1].light.color = brighter_colour(tint)
+
+	end
 end
 
-function belt_reskin.retint_deadlock_beltbox(entity, tint)
-	entity.icons[2].tint = tint
+function belt_reskin.retint_aai(entities, tint)
+	local loader = entities.aai_loader
+	local pipe = entities.aai_pipe
+	local item = entities.aai_item
+	local tech = entities.aai_tech
+	if loader and pipe and item and tech then
+		loader.icons[2].tint = tint
+		loader.structure.direction_in.sheets[3].tint = tint
+		loader.structure.direction_in.sheets[3].hr_version.tint = tint
+		loader.structure.direction_out.sheets[3].tint = tint
+		loader.structure.direction_out.sheets[3].hr_version.tint = tint
 
-	entity.animation.layers[2].tint = tint
-	entity.animation.layers[2].hr_version.tint = tint
-	entity.working_visualisations[1].animation.tint = tint
-	entity.working_visualisations[1].animation.hr_version.tint = brighter_colour(tint)
-	entity.working_visualisations[1].light.color = brighter_colour(tint)
-end
+		pipe.icons[2].tint = tint
 
-function belt_reskin.retint_mini_loader(entity, tint)
-	entity.structure.direction_in.sheets[2].tint = tint
-	entity.structure.direction_in.sheets[2].hr_version.tint = tint
-	entity.structure.direction_out.sheets[2].tint = tint
-	entity.structure.direction_out.sheets[2].hr_version.tint = tint
-end
+		item.icons[2].tint = tint
 
-function belt_reskin.retint_mini_loader_ins(entity, tint)
-	entity.platform_picture.sheets[2].tint = tint
-	entity.platform_picture.sheets[2].hr_version.tint = tint
+		tech.icons[2].tint = tint
+	end
 end
