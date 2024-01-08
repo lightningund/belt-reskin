@@ -47,6 +47,12 @@ for prefix, properties in pairs(tiers) do
 		-- Deadlock Stacking Beltboxes and Compact loaders
 		deadlock_loader = data.raw["loader-1x1"][prefix .. properties.suffix .. "-loader"],
 		deadlock_beltbox = data.raw["furnace"][prefix .. properties.suffix .. "-beltbox"],
+
+		-- AAI Loader
+		aai_loader = data.raw["loader-1x1"]["aai-" .. prefix .. "loader"],
+		aai_pipe = data.raw["storage-tank"]["aai-" .. prefix .. "loader-pipe"],
+		aai_item = data.raw["item"]["aai-" .. prefix .. "loader"],
+		aai_tech = data.raw["technology"]["aai-" .. prefix .. "loader"],
 	}
 
 	-- Reskin the belts on all related entity types
@@ -98,6 +104,28 @@ for prefix, properties in pairs(tiers) do
 	-- Retint Deadlock Beltbox
 	if entities.deadlock_beltbox then
 		belt_reskin.retint_deadlock_beltbox(entities.deadlock_beltbox, col)
+	end
+
+	-- Retint AAI
+	if entities.aai_loader then
+		local ent = entities.aai_loader
+		ent.icons[2].tint = col
+		ent.structure.direction_in.sheets[3].tint = col
+		ent.structure.direction_in.sheets[3].hr_version.tint = col
+		ent.structure.direction_out.sheets[3].tint = col
+		ent.structure.direction_out.sheets[3].hr_version.tint = col
+	end
+	if entities.aai_pipe then
+		local ent = entities.aai_pipe
+		ent.icons[2].tint = col
+	end
+	if entities.aai_item then
+		local ent = entities.aai_item
+		ent.icons[2].tint = col
+	end
+	if entities.aai_tech then
+		local ent = entities.aai_tech
+		ent.icons[2].tint = col
 	end
 end
 
