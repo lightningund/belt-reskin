@@ -12,6 +12,5 @@
         "(?) deadlock-integrations",
         "? UltimateBelts_Owoshima_And_Pankeko-Mod",
         "? aai-loaders"
-    ],
-    "description": "Colors loaders, belts, undergrounds, and splitters to all have a consistent design and color scheme. Supports Ultimate Belts, and can be used with Miniloader, Deadlock Stacking Beltboxes & Loaders, and AAI Loaders."
+    ]
 }
