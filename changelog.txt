@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.6.1
-Date: 08.01.24
+Date: 2024-01-08
   Changes:
     - Added changelog
     - Removed unused stuff from the package
