@@ -6,7 +6,7 @@
 -- Core functions
 require("functions")
 
-local tiers = require "tiers"
+local tiers = require("tiers")
 
 local belt_animation_sets = {}
 
@@ -114,18 +114,12 @@ for prefix, properties in pairs(tiers) do
 		ent.structure.direction_in.sheets[3].hr_version.tint = col
 		ent.structure.direction_out.sheets[3].tint = col
 		ent.structure.direction_out.sheets[3].hr_version.tint = col
-	end
-	if entities.aai_pipe then
-		local ent = entities.aai_pipe
-		ent.icons[2].tint = col
-	end
-	if entities.aai_item then
-		local ent = entities.aai_item
-		ent.icons[2].tint = col
-	end
-	if entities.aai_tech then
-		local ent = entities.aai_tech
-		ent.icons[2].tint = col
+
+		entities.aai_pipe.icons[2].tint = col
+
+		entities.aai_item.icons[2].tint = col
+
+		entities.aai_tech.icons[2].tint = col
 	end
 end
 
