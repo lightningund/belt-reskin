@@ -1,6 +1,6 @@
 {
     "name": "belt-reskin",
-    "version": "0.6.2",
+    "version": "0.7.0",
     "factorio_version": "1.1",
     "title": "Belt Reskin",
     "author": "lightningund",
@@ -10,6 +10,7 @@
         "? miniloader",
         "? deadlock-beltboxes-loaders",
         "(?) deadlock-integrations",
-        "? UltimateBelts_Owoshima_And_Pankeko-Mod"
+        "? UltimateBelts_Owoshima_And_Pankeko-Mod",
+        "? aai-loaders"
     ]
 }
