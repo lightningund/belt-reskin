@@ -1,0 +1,5 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.6.2
+Date: 08.01.24
+	Changes:
+		- Added rails as snap targets for loaders, since loaders can be used with cargo wagons as of Factorio v1.1.75.
