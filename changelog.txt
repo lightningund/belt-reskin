@@ -1,8 +1,12 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.7.0
-Date: ????
+Date: 2024-01-08
   Locale:
     - Updated mod info
+  Major Features:
+    - Added AAI Loaders support
+  Bugfixes:
+    - Removed saying it supports Loader Redux because that's currently not true
 ---------------------------------------------------------------------------------------------------
 Version: 0.6.1
 Date: 2024-01-08
