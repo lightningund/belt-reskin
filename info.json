@@ -12,5 +12,13 @@
         "(?) deadlock-integrations",
         "? UltimateBelts_Owoshima_And_Pankeko-Mod",
         "? aai-loaders"
-    ]
+    ],
+    "package": {
+        "ignore": [
+            ".gitignore",
+            "Todo.md",
+            ".git/**",
+            ".obsidian/**"
+        ]
+    }
 }
