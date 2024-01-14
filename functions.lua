@@ -208,7 +208,7 @@ function belt_reskin.splitter_sprite_set(entity, tint)
 end
 
 function belt_reskin.retint_miniloader(entities, tint)
-	local function retint(loader, ins, tint)
+	local function retint(loader, ins, item, tint)
 		loader.structure.direction_in.sheets[2].tint = tint
 		loader.structure.direction_in.sheets[2].hr_version.tint = tint
 		loader.structure.direction_out.sheets[2].tint = tint
@@ -216,19 +216,23 @@ function belt_reskin.retint_miniloader(entities, tint)
 
 		ins.platform_picture.sheets[2].tint = tint
 		ins.platform_picture.sheets[2].hr_version.tint = tint
+
+		item.icons[2].tint = tint
 	end
 
 	local loader = entities.miniloader
 	local ins = entities.miniloader_ins
+	local item = entities.miniloader_item
 	local f_loader = entities.filter_miniloader
 	local f_ins = entities.filter_miniloader_ins
+	local f_item = entities.filter_miniloader_item
 
-	if loader and ins then
-		retint(loader, ins, tint)
+	if loader and ins and item then
+		retint(loader, ins, item, tint)
 	end
 
-	if f_loader and f_ins then
-		retint(f_loader, f_ins, tint)
+	if f_loader and f_ins and f_item then
+		retint(f_loader, f_ins, f_item, tint)
 	end
 end
 

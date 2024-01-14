@@ -44,8 +44,10 @@ for prefix, properties in pairs(tiers) do
 		-- Miniloader
 		miniloader = data.raw["loader-1x1"][ml_prefix .. "miniloader-loader"],
 		miniloader_ins = data.raw["inserter"][ml_prefix .. "miniloader-inserter"],
+		miniloader_item = data.raw["item"][ml_prefix .. "miniloader"],
 		filter_miniloader = data.raw["loader-1x1"][ml_prefix .. "filter-miniloader-loader"],
 		filter_miniloader_ins = data.raw["inserter"][ml_prefix .. "filter-miniloader-inserter"],
+		filter_miniloader_item = data.raw["item"][ml_prefix .. "filter-miniloader"],
 
 		-- Deadlock Stacking Beltboxes and Compact loaders
 		deadlock_loader = data.raw["loader-1x1"][prefix .. properties.suffix .. "-loader"],
