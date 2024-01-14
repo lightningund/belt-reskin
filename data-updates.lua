@@ -33,6 +33,7 @@ for prefix, properties in pairs(tiers) do
 
 	-- Fetch entities
 	local entities = {
+		-- Vanilla
 		belt = data.raw["transport-belt"][prefix .. properties.suffix],
 		belt_item = data.raw["item"][prefix .. properties.suffix],
 		splitter = data.raw["splitter"][prefix .. "splitter"],
@@ -48,9 +49,9 @@ for prefix, properties in pairs(tiers) do
 
 		-- Deadlock Stacking Beltboxes and Compact loaders
 		deadlock_loader = data.raw["loader-1x1"][prefix .. properties.suffix .. "-loader"],
-		deadlock_loader_item = data.raw["loader-1x1"][prefix .. properties.suffix .. "-loader"],
+		deadlock_loader_item = data.raw["item"][prefix .. properties.suffix .. "-loader"],
 		deadlock_beltbox = data.raw["furnace"][prefix .. properties.suffix .. "-beltbox"],
-		deadlock_beltbox_item = data.raw["furnace"][prefix .. properties.suffix .. "-beltbox"],
+		deadlock_beltbox_item = data.raw["item"][prefix .. properties.suffix .. "-beltbox"],
 
 		-- AAI Loader
 		aai_loader = data.raw["loader-1x1"]["aai-" .. prefix .. "loader"],
