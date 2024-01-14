@@ -4,9 +4,10 @@ Icons
 - [X] Belts
 - [ ] Underground
 - [ ] Splitters
-- [ ] Beltboxes
-- [ ] Loaders (Vanilla)
-- [ ] Loaders (Deadlock)
+- [X] Beltboxes
+- [X] Loaders (Deadlock)
+- [X] Loaders (Redux)
+- [X] Loaders (AAI)
 - [ ] Loaders (mini)
 - [ ] Filter Loaders (mini)
 
@@ -15,8 +16,9 @@ Entities
 - [x] Underground
 - [x] Splitters
 - [X] Beltboxes
-- [X] Loaders (Vanilla)
 - [X] Loaders (Deadlock)
+- [X] Loaders (Redux)
+- [X] Loaders (AAI)
 - [X] Loaders (mini)
 - [X] Filter Loaders (mini)
 
@@ -25,14 +27,16 @@ Remnants
 - [ ] Underground
 - [ ] Splitters
 - [ ] Beltboxes
-- [ ] Loaders (Vanilla)
 - [ ] Loaders (Deadlock)
+- [ ] Loaders (Redux)
+- [ ] Loaders (AAI)
 - [ ] Loaders (mini)
 - [ ] Filter Loaders (mini)
 
 Technologies
 - [ ] Logistics (Vanilla)
-- [ ] ???
+- [ ] Beltboxes
+- [ ] AAI Loaders
 
 Add Tiers
 - [ ] Bob's logistics
@@ -40,28 +44,22 @@ Add Tiers
 - [ ] FactorioExtendedPlus
 - [ ] Space Exploration
 
-Add Color Coding?
-- [ ] Concrete
-- [ ] Walls
-- [ ] Lamps
-- [ ] For each tier
-
-Loader Redux
-- [ ] Loader Entity
-- [ ] Loader Item
-- [ ] Loader Remnants
-- [ ] Loader Research
-- [ ] Add Loader if doesn't exist
-
-AAI Loaders
-- [X] Loader Entity
-- [X] Loader Item
-- [ ] Loader Remnants
-- [X] Loader Research
-- [ ] Add Loader if doesn't exist
+Add Items
+- [ ] Beltboxes
+- [ ] Loaders (Deadlock)
+- [ ] Loaders (Redux)
+- [ ] Loaders (AAI)
+- [ ] Loaders (mini)
+- [ ] Filter Loaders (mini)
 
 Micro Furnaces?
 - [ ] Furnace Entities
 - [ ] Furnace Items
 - [ ] Furnace Technologies
 - [ ] Add Furnaces for all Tiers
+
+Add Color Coding?
+- [ ] Concrete
+- [ ] Walls
+- [ ] Lamps
+- [ ] For each tier
