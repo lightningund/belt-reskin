@@ -85,11 +85,27 @@ for prefix, properties in pairs(tiers) do
 	-- Reskin the Splitter
 	if entities.splitter then
 		belt_reskin.splitter_sprite_set(entities.splitter, col)
+
+		local icons = belt_reskin.splitter_icon(col)
+		entities.splitter.icons = icons
+
+		-- And the item to match
+		if entities.splitter_item then
+			entities.splitter_item.icons = icons
+		end
 	end
 
 	-- Reskin the Underground
 	if entities.underground then
 		entities.underground.structure = belt_reskin.underground_belt_sprite_set(col)
+
+		local icons = belt_reskin.underground_belt_icon(col)
+		entities.underground.icons = icons
+
+		-- And the item to match
+		if entities.underground_item then
+			entities.underground_item.icons = icons
+		end
 	end
 
 	-- Retint Miniloader
