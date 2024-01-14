@@ -2,14 +2,14 @@ Make everything have consistent orderings and groupings
 
 Icons
 - [X] Belts
-- [ ] Underground
-- [ ] Splitters
+- [X] Underground
+- [X] Splitters
 - [X] Beltboxes
 - [X] Loaders (Deadlock)
 - [X] Loaders (Redux)
 - [X] Loaders (AAI)
-- [ ] Loaders (mini)
-- [ ] Filter Loaders (mini)
+- [X] Loaders (mini)
+- [X] Filter Loaders (mini)
 
 Entities
 - [x] Belts
@@ -37,6 +37,7 @@ Technologies
 - [ ] Logistics (Vanilla)
 - [ ] Beltboxes
 - [ ] AAI Loaders
+- [ ] Miniloaders
 
 Add Tiers
 - [ ] Bob's logistics

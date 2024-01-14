@@ -2,8 +2,9 @@
 Version: 0.8.1
 Date: ????
   Features:
-    - Deadlock items are now recolored
     - Splitter and Underground items are now recolored
+    - Deadlock items are now recolored
+    - Miniloader items are now recolored
   Changes:
     - Added some debug files to the package ignore
 ---------------------------------------------------------------------------------------------------
