@@ -53,6 +53,10 @@ for prefix, properties in pairs(tiers) do
 		aai_pipe = data.raw["storage-tank"]["aai-" .. prefix .. "loader-pipe"],
 		aai_item = data.raw["item"]["aai-" .. prefix .. "loader"],
 		aai_tech = data.raw["technology"]["aai-" .. prefix .. "loader"],
+
+		-- Loader Redux
+		redux_ent = data.raw["loader"][prefix .. "loader"],
+		redux_item = data.raw["item"][prefix .. "loader"],
 	}
 
 	-- Reskin the belts on all related entity types
@@ -92,6 +96,9 @@ for prefix, properties in pairs(tiers) do
 
 	-- Retint AAI
 	belt_reskin.retint_aai(entities, col)
+
+	-- Retint Loader Redux loaders
+	belt_reskin.retint_loader_redux(entities, col)
 end
 
 local v_loader = data.raw["loader-1x1"]["loader-1x1"]

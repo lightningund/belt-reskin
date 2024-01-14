@@ -1,6 +1,6 @@
 {
     "name": "belt-reskin",
-    "version": "0.7.3",
+    "version": "0.8.0",
     "factorio_version": "1.1",
     "title": "Belt Reskin",
     "author": "lightningund",
@@ -11,7 +11,8 @@
         "? deadlock-beltboxes-loaders",
         "(?) deadlock-integrations",
         "? UltimateBelts_Owoshima_And_Pankeko-Mod",
-        "? aai-loaders"
+        "? aai-loaders",
+        "? LoaderRedux"
     ],
     "package": {
         "ignore": [
