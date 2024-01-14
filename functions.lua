@@ -8,61 +8,41 @@
 -- Make our function host
 if not belt_reskin then belt_reskin = {} end
 
--- Standardize the belt icons
----@return table table a complete item icons definition
----@param tint Color Color of the arrows
-function belt_reskin.transport_belt_icon(tint)
+local function icon(file, tint)
 	return {
 		{
-			icon = "__belt-reskin__/graphics/icons/belt-base.png",
+			icon = "__belt-reskin__/graphics/icons/" .. file .. "-base.png",
 			icon_size = 64,
 			icon_mipmaps = 4
 		},
 		{
-			icon = "__belt-reskin__/graphics/icons/belt-arrows.png",
+			icon = "__belt-reskin__/graphics/icons/" .. file .. "-mask.png",
 			icon_size = 64,
 			icon_mipmaps = 4,
 			tint = tint
 		}
 	}
+end
+
+-- Standardize the belt icons
+---@return table table a complete item icons definition
+---@param tint Color Color of the arrows
+function belt_reskin.transport_belt_icon(tint)
+	return icon("belt", tint)
 end
 
 -- Standardize the splitter icons
 ---@return table table a complete item icons definition
 ---@param tint Color Color of the highlights
 function belt_reskin.splitter_icon(tint)
-	return {
-		{
-			icon = "__belt-reskin__/graphics/icons/splitter-base.png",
-			icon_size = 64,
-			icon_mipmaps = 4
-		},
-		{
-			icon = "__belt-reskin__/graphics/icons/splitter-mask.png",
-			icon_size = 64,
-			icon_mipmaps = 4,
-			tint = tint
-		}
-	}
+	return icon("splitter", tint)
 end
 
 -- Standardize the underground belt icons
 ---@return table table a complete item icons definition
 ---@param tint Color Color of the highlights
 function belt_reskin.underground_belt_icon(tint)
-	return {
-		{
-			icon = "__belt-reskin__/graphics/icons/underground-belt-base.png",
-			icon_size = 64,
-			icon_mipmaps = 4
-		},
-		{
-			icon = "__belt-reskin__/graphics/icons/underground-belt-mask.png",
-			icon_size = 64,
-			icon_mipmaps = 4,
-			tint = tint
-		}
-	}
+	return icon("underground-belt", tint)
 end
 
 -- Create animation set for transport belts
