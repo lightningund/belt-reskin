@@ -52,6 +52,17 @@ Add Items
 - [ ] Loaders (mini)
 - [ ] Filter Loaders (mini)
 
+Reorder
+- [ ] Belts
+- [ ] Splitters
+- [ ] Undergrounds
+- [ ] Beltboxes
+- [ ] Loaders (Deadlock)
+- [ ] Loaders (Redux)
+- [ ] Loaders (AAI)
+- [ ] Loaders (mini)
+- [ ] Filter Loaders (mini)
+
 Micro Furnaces?
 - [ ] Furnace Entities
 - [ ] Furnace Items
