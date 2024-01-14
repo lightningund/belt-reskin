@@ -19,7 +19,8 @@
             ".gitignore",
             "Todo.md",
             ".git/**",
-            ".obsidian/**"
+            ".obsidian/**",
+            "**/*.pdn"
         ]
     }
 }
