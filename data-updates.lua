@@ -34,9 +34,11 @@ for prefix, properties in pairs(tiers) do
 	-- Fetch entities
 	local entities = {
 		belt = data.raw["transport-belt"][prefix .. properties.suffix],
+		belt_item = data.raw["item"][prefix .. properties.suffix],
 		splitter = data.raw["splitter"][prefix .. "splitter"],
+		splitter_item = data.raw["item"][prefix .. "splitter"],
 		underground = data.raw["underground-belt"][prefix .. "underground-belt"],
-		loader = data.raw["loader"][prefix .. "loader"],
+		underground_item = data.raw["item"][prefix .. "underground-belt"],
 
 		-- Miniloader
 		miniloader = data.raw["loader-1x1"][ml_prefix .. "miniloader-loader"],
@@ -46,7 +48,9 @@ for prefix, properties in pairs(tiers) do
 
 		-- Deadlock Stacking Beltboxes and Compact loaders
 		deadlock_loader = data.raw["loader-1x1"][prefix .. properties.suffix .. "-loader"],
+		deadlock_loader_item = data.raw["loader-1x1"][prefix .. properties.suffix .. "-loader"],
 		deadlock_beltbox = data.raw["furnace"][prefix .. properties.suffix .. "-beltbox"],
+		deadlock_beltbox_item = data.raw["furnace"][prefix .. properties.suffix .. "-beltbox"],
 
 		-- AAI Loader
 		aai_loader = data.raw["loader-1x1"]["aai-" .. prefix .. "loader"],
@@ -72,9 +76,8 @@ for prefix, properties in pairs(tiers) do
 		entities.belt.icons = icons
 
 		-- And the item to match
-		local belt_item = data.raw["item"][prefix .. properties.suffix]
-		if belt_item then
-			belt_item.icons = icons
+		if entities.belt_item then
+			entities.belt_item.icons = icons
 		end
 	end
 
