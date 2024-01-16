@@ -6,6 +6,7 @@ Date: ????
     - Reorders Miniloaders
     - Reorders Deadlock loaders/beltboxes
     - Reorders AAI loaders
+    - Reorders Loader Redux loaders
   Locale:
     - Added description for new setting
 ---------------------------------------------------------------------------------------------------

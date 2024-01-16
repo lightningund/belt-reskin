@@ -331,5 +331,7 @@ function belt_reskin.retint_loader_redux(entities, tint)
 		ent.structure.direction_out.sheets[2].hr_version.tint = tint
 
 		itm.icons[2].tint = tint
+
+		reorder(itm, "redux-loaders", "bd0")
 	end
 end
