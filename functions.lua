@@ -329,17 +329,19 @@ function belt_reskin.retint_aai(entities, tint)
 end
 
 function belt_reskin.retint_loader_redux(entities, tint)
-	local ent = entities.redux_ent
-	local itm = entities.redux_item
-	if ent and itm then
-		ent.icons[2].tint = tint
-		ent.structure.direction_in.sheets[2].tint = tint
-		ent.structure.direction_in.sheets[2].hr_version.tint = tint
-		ent.structure.direction_out.sheets[2].tint = tint
-		ent.structure.direction_out.sheets[2].hr_version.tint = tint
+	if mods["LoaderRedux"] then
+		local ent = entities.redux_ent
+		local itm = entities.redux_item
+		if ent and itm then
+			ent.icons[2].tint = tint
+			ent.structure.direction_in.sheets[2].tint = tint
+			ent.structure.direction_in.sheets[2].hr_version.tint = tint
+			ent.structure.direction_out.sheets[2].tint = tint
+			ent.structure.direction_out.sheets[2].hr_version.tint = tint
 
-		itm.icons[2].tint = tint
+			itm.icons[2].tint = tint
 
-		regroup(itm, "redux-loaders", "bd0")
+			regroup(itm, "redux-loaders", "bd0")
+		end
 	end
 end
