@@ -5,6 +5,8 @@ Date: ????
     - Added option to reorder item groups
     - Reorders Miniloaders
     - Reorders Deadlock loaders/beltboxes
+  Locale:
+    - Added description for new setting
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.1
 Date: 2024-01-14
