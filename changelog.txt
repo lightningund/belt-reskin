@@ -3,11 +3,11 @@ Version: 0.9.0
 Date: ????
   Features:
     - Added option to reorder item groups
-    - Reorders belts/splitters/undergrounds
-    - Reorders Miniloaders
-    - Reorders Deadlock loaders/beltboxes
-    - Reorders AAI loaders
-    - Reorders Loader Redux loaders
+    - Regroups belts/splitters/undergrounds
+    - Regroups Miniloaders
+    - Regroups Deadlock loaders/beltboxes
+    - Regroups AAI loaders
+    - Regroups Loader Redux loaders
   Locale:
     - Added description for new setting
 ---------------------------------------------------------------------------------------------------

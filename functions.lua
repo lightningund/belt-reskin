@@ -207,8 +207,8 @@ function belt_reskin.splitter_sprite_set(entity, tint)
 	entity.structure_patch = nil
 end
 
-local function reorder(item, subgroup, order)
-	if settings.startup["belt-reskin-reorder"].value then
+local function regroup(item, subgroup, order)
+	if settings.startup["belt-reskin-regroup"].value then
 		if not data.raw["item-subgroup"][subgroup] then
 			data:extend({
 				{
@@ -231,10 +231,10 @@ local function reorder(item, subgroup, order)
 	end
 end
 
-function belt_reskin.reorder_vanilla(entities)
-	reorder(entities.belt_item, "belts", "a0")
-	reorder(entities.splitter_item, "splitters", "a1")
-	reorder(entities.underground_item, "underground-belts", "a2")
+function belt_reskin.regroup_vanilla(entities)
+	regroup(entities.belt_item, "belts", "a0")
+	regroup(entities.splitter_item, "splitters", "a1")
+	regroup(entities.underground_item, "underground-belts", "a2")
 end
 
 function belt_reskin.retint_miniloader(entities, tint)
@@ -260,13 +260,13 @@ function belt_reskin.retint_miniloader(entities, tint)
 	if loader and ins and item then
 		retint(loader, ins, item, tint)
 
-		reorder(item, "miniloaders", "ba0")
+		regroup(item, "miniloaders", "ba0")
 	end
 
 	if f_loader and f_ins and f_item then
 		retint(f_loader, f_ins, f_item, tint)
 
-		reorder(f_item, "filter-miniloaders", "ba1")
+		regroup(f_item, "filter-miniloaders", "ba1")
 	end
 end
 
@@ -292,7 +292,7 @@ function belt_reskin.retint_deadlock(entities, tint)
 		loader.structure.direction_out.sheets[3].hr_version.tint = tint
 
 		loader_item.icons[2].tint = tint
-		reorder(loader_item, "deadlock-loaders", "bb0")
+		regroup(loader_item, "deadlock-loaders", "bb0")
 
 		beltbox.icons[2].tint = tint
 		beltbox.animation.layers[2].tint = tint
@@ -302,7 +302,7 @@ function belt_reskin.retint_deadlock(entities, tint)
 		beltbox.working_visualisations[1].light.color = brighter_colour(tint)
 
 		beltbox_item.icons[2].tint = tint
-		reorder(beltbox_item, "deadlock-beltboxes", "bb1")
+		regroup(beltbox_item, "deadlock-beltboxes", "bb1")
 	end
 end
 
@@ -324,7 +324,7 @@ function belt_reskin.retint_aai(entities, tint)
 
 		tech.icons[2].tint = tint
 
-		reorder(item, "aai-loaders", "bc0")
+		regroup(item, "aai-loaders", "bc0")
 	end
 end
 
@@ -340,6 +340,6 @@ function belt_reskin.retint_loader_redux(entities, tint)
 
 		itm.icons[2].tint = tint
 
-		reorder(itm, "redux-loaders", "bd0")
+		regroup(itm, "redux-loaders", "bd0")
 	end
 end

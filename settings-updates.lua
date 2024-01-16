@@ -25,7 +25,7 @@ data:extend({
 data:extend({
 	{
 		type = "bool-setting",
-		name = "belt-reskin-reorder",
+		name = "belt-reskin-regroup",
 		setting_type = "startup",
 		default_value = true,
 		order = "00",
