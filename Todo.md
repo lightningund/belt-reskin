@@ -1,5 +1,3 @@
-Make everything have consistent orderings and groupings
-
 Icons
 - [X] Belts
 - [X] Underground
@@ -54,15 +52,15 @@ Add Items
 - [ ] Filter Loaders (mini)
 
 Reorder
-- [ ] Belts
-- [ ] Splitters
-- [ ] Undergrounds
-- [ ] Beltboxes
-- [ ] Loaders (Deadlock)
-- [ ] Loaders (Redux)
-- [ ] Loaders (AAI)
-- [ ] Loaders (mini)
-- [ ] Filter Loaders (mini)
+- [X] Belts
+- [X] Splitters
+- [X] Undergrounds
+- [X] Beltboxes
+- [X] Loaders (Deadlock)
+- [X] Loaders (Redux)
+- [X] Loaders (AAI)
+- [X] Loaders (mini)
+- [X] Filter Loaders (mini)
 
 Micro Furnaces?
 - [ ] Furnace Entities
