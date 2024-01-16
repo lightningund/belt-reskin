@@ -22,6 +22,16 @@ data:extend({
 	},
 })
 
+data:extend({
+	{
+		type = "bool-setting",
+		name = "belt-reskin-reorder",
+		setting_type = "startup",
+		default_value = true,
+		order = "00",
+	}
+})
+
 if mods["UltimateBelts"] then
 	local ub_tiers = {
 		{
