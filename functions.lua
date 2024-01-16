@@ -315,6 +315,8 @@ function belt_reskin.retint_aai(entities, tint)
 		item.icons[2].tint = tint
 
 		tech.icons[2].tint = tint
+
+		reorder(item, "aai-loaders", "bc0")
 	end
 end
 

@@ -5,6 +5,7 @@ Date: ????
     - Added option to reorder item groups
     - Reorders Miniloaders
     - Reorders Deadlock loaders/beltboxes
+    - Reorders AAI loaders
   Locale:
     - Added description for new setting
 ---------------------------------------------------------------------------------------------------
