@@ -110,6 +110,9 @@ for prefix, properties in pairs(tiers) do
 		end
 	end
 
+	-- Reorder Vanilla Items (temporary until this all gets moved into functions)
+	belt_reskin.reorder_vanilla(entities)
+
 	-- Retint Miniloader
 	belt_reskin.retint_miniloader(entities, col)
 

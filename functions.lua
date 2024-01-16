@@ -220,13 +220,21 @@ local function reorder(item, subgroup, order)
 			})
 		end
 
-		item.subgroup = subgroup
+		if item then
+			item.subgroup = subgroup
 
-		local recipe = data.raw["recipe"][item.name]
-		if recipe then
-			recipe.subgroup = subgroup
+			local recipe = data.raw["recipe"][item.name]
+			if recipe then
+				recipe.subgroup = subgroup
+			end
 		end
 	end
+end
+
+function belt_reskin.reorder_vanilla(entities)
+	reorder(entities.belt_item, "belts", "a0")
+	reorder(entities.splitter_item, "splitters", "a1")
+	reorder(entities.underground_item, "underground-belts", "a2")
 end
 
 function belt_reskin.retint_miniloader(entities, tint)
