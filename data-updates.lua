@@ -133,8 +133,15 @@ end
 
 if mods["miniloader"] then
 	local chute = data.raw["loader-1x1"]["chute-miniloader-loader"]
+	local chute_itm = data.raw["item"]["chute-miniloader"]
+	local chute_rcp = data.raw["recipe"]["chute-miniloader"]
 
 	if chute then
 		chute.belt_animation_set = belt_animation_sets["transport-belt"]
+
+		chute_itm.subgroup = "miniloaders"
+		chute_itm.order = "e[miniloader]-0[chute]"
+		chute_rcp.subgroup = "miniloaders"
+		chute_rcp.order = "e[miniloader]-z[chute]"
 	end
 end
