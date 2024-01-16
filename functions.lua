@@ -221,6 +221,11 @@ local function reorder(item, subgroup, order)
 		end
 
 		item.subgroup = subgroup
+
+		local recipe = data.raw["recipe"][item.name]
+		if recipe then
+			recipe.subgroup = subgroup
+		end
 	end
 end
 
@@ -253,7 +258,7 @@ function belt_reskin.retint_miniloader(entities, tint)
 	if f_loader and f_ins and f_item then
 		retint(f_loader, f_ins, f_item, tint)
 
-		reorder(f_item, "filter_miniloaders", "ba1")
+		reorder(f_item, "filter-miniloaders", "ba1")
 	end
 end
 
@@ -279,7 +284,7 @@ function belt_reskin.retint_deadlock(entities, tint)
 		loader.structure.direction_out.sheets[3].hr_version.tint = tint
 
 		loader_item.icons[2].tint = tint
-		reorder(loader_item, "deadlock_loaders", "bb0")
+		reorder(loader_item, "deadlock-loaders", "bb0")
 
 		beltbox.icons[2].tint = tint
 		beltbox.animation.layers[2].tint = tint
@@ -289,7 +294,7 @@ function belt_reskin.retint_deadlock(entities, tint)
 		beltbox.working_visualisations[1].light.color = brighter_colour(tint)
 
 		beltbox_item.icons[2].tint = tint
-		reorder(beltbox_item, "deadlock_beltboxes", "bb1")
+		reorder(beltbox_item, "deadlock-beltboxes", "bb1")
 	end
 end
 
