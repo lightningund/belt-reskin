@@ -272,20 +272,24 @@ function belt_reskin.retint_deadlock(entities, tint)
 	local beltbox_item = entities.deadlock_beltbox_item
 
 	if loader and loader_item and beltbox and beltbox_item then
-		loader_item.icons[2].tint = tint
 		loader.icons[2].tint = tint
 		loader.structure.direction_in.sheets[3].tint = tint
 		loader.structure.direction_in.sheets[3].hr_version.tint = tint
 		loader.structure.direction_out.sheets[3].tint = tint
 		loader.structure.direction_out.sheets[3].hr_version.tint = tint
 
-		beltbox_item.icons[2].tint = tint
+		loader_item.icons[2].tint = tint
+		reorder(loader_item, "deadlock_loaders", "bb0")
+
 		beltbox.icons[2].tint = tint
 		beltbox.animation.layers[2].tint = tint
 		beltbox.animation.layers[2].hr_version.tint = tint
 		beltbox.working_visualisations[1].animation.tint = tint
 		beltbox.working_visualisations[1].animation.hr_version.tint = brighter_colour(tint)
 		beltbox.working_visualisations[1].light.color = brighter_colour(tint)
+
+		beltbox_item.icons[2].tint = tint
+		reorder(beltbox_item, "deadlock_beltboxes", "bb1")
 	end
 end
 
