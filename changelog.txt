@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.0
-Date: ????
+Date: 2024-01-16
   Features:
     - Added option to reorder item groups
     - Regroups belts/splitters/undergrounds
