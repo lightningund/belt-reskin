@@ -207,6 +207,23 @@ function belt_reskin.splitter_sprite_set(entity, tint)
 	entity.structure_patch = nil
 end
 
+local function reorder(item, subgroup, order)
+	if settings.startup["belt-reskin-reorder"].value then
+		if not data.raw["item-subgroup"][subgroup] then
+			data:extend({
+				{
+					type = "item-subgroup",
+					name = subgroup,
+					group = "logistics",
+					order = order,
+				}
+			})
+		end
+
+		item.subgroup = subgroup
+	end
+end
+
 function belt_reskin.retint_miniloader(entities, tint)
 	local function retint(loader, ins, item, tint)
 		loader.structure.direction_in.sheets[2].tint = tint
@@ -229,10 +246,14 @@ function belt_reskin.retint_miniloader(entities, tint)
 
 	if loader and ins and item then
 		retint(loader, ins, item, tint)
+
+		reorder(item, "miniloaders", "ba0")
 	end
 
 	if f_loader and f_ins and f_item then
 		retint(f_loader, f_ins, f_item, tint)
+
+		reorder(f_item, "filter_miniloaders", "ba1")
 	end
 end
 
