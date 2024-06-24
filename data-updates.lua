@@ -77,53 +77,19 @@ for prefix, properties in pairs(tiers) do
 		end
 	end
 
-	-- Reskin the belt icon
-	if entities.belt then
-		local icons = belt_reskin.transport_belt_icon(col)
-		entities.belt.icons = icons
-
-		-- And the item to match
-		if entities.belt_item then
-			entities.belt_item.icons = icons
-		end
-	end
-
-	-- Reskin the Splitter
-	if entities.splitter then
-		belt_reskin.splitter_sprite_set(entities.splitter, col)
-
-		local icons = belt_reskin.splitter_icon(col)
-		entities.splitter.icons = icons
-
-		-- And the item to match
-		if entities.splitter_item then
-			entities.splitter_item.icons = icons
-		end
-	end
-
-	-- Reskin the Underground
-	if entities.underground then
-		entities.underground.structure = belt_reskin.underground_belt_sprite_set(col)
-
-		local icons = belt_reskin.underground_belt_icon(col)
-		entities.underground.icons = icons
-
-		-- And the item to match
-		if entities.underground_item then
-			entities.underground_item.icons = icons
-		end
-	end
-
 	-- Regroup Vanilla Items (temporary until this all gets moved into functions)
 	belt_reskin.regroup_vanilla(entities)
+
+	-- Reskin Vanilla entities and items
+	belt_reskin.reskin_vanilla(entities, col)
 
 	-- Retint Miniloader
 	belt_reskin.retint_miniloader(entities, col)
 
-	-- Retint Deadlock
+	-- Retint Deadlock loaders
 	belt_reskin.retint_deadlock(entities, col)
 
-	-- Retint AAI
+	-- Retint AAI loaders
 	belt_reskin.retint_aai(entities, col)
 
 	-- Retint Loader Redux loaders

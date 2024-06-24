@@ -237,6 +237,45 @@ function belt_reskin.regroup_vanilla(entities)
 	regroup(entities.underground_item, "underground-belts", "a2")
 end
 
+function belt_reskin.reskin_vanilla(entities, tint)
+	-- Reskin the belt icon
+	if entities.belt then
+		local icons = belt_reskin.transport_belt_icon(tint)
+		entities.belt.icons = icons
+
+		-- And the item to match
+		if entities.belt_item then
+			entities.belt_item.icons = icons
+		end
+	end
+
+	-- Reskin the Splitter
+	if entities.splitter then
+		belt_reskin.splitter_sprite_set(entities.splitter, tint)
+
+		local icons = belt_reskin.splitter_icon(tint)
+		entities.splitter.icons = icons
+
+		-- And the item to match
+		if entities.splitter_item then
+			entities.splitter_item.icons = icons
+		end
+	end
+
+	-- Reskin the Underground
+	if entities.underground then
+		entities.underground.structure = belt_reskin.underground_belt_sprite_set(tint)
+
+		local icons = belt_reskin.underground_belt_icon(tint)
+		entities.underground.icons = icons
+
+		-- And the item to match
+		if entities.underground_item then
+			entities.underground_item.icons = icons
+		end
+	end
+end
+
 function belt_reskin.retint_miniloader(entities, tint)
 	local function retint(loader, ins, item, tint)
 		loader.structure.direction_in.sheets[2].tint = tint
