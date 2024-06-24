@@ -3,6 +3,7 @@ Version: 0.9.4
 Date: ????
   Architecture:
     - Organized the vanilla reskinning
+    - Simplified and reorganized the sprite retinting
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.3
 Date: 2024-06-24

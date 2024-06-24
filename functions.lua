@@ -207,6 +207,11 @@ function belt_reskin.splitter_sprite_set(entity, tint)
 	entity.structure_patch = nil
 end
 
+local function retint(sheet, tint)
+	sheet.tint = tint
+	sheet.hr_version.tint = tint
+end
+
 local function regroup(item, subgroup, order)
 	if settings.startup["belt-reskin-regroup"].value then
 		if not data.raw["item-subgroup"][subgroup] then
@@ -277,18 +282,6 @@ function belt_reskin.reskin_vanilla(entities, tint)
 end
 
 function belt_reskin.retint_miniloader(entities, tint)
-	local function retint(loader, ins, item, tint)
-		loader.structure.direction_in.sheets[2].tint = tint
-		loader.structure.direction_in.sheets[2].hr_version.tint = tint
-		loader.structure.direction_out.sheets[2].tint = tint
-		loader.structure.direction_out.sheets[2].hr_version.tint = tint
-
-		ins.platform_picture.sheets[2].tint = tint
-		ins.platform_picture.sheets[2].hr_version.tint = tint
-
-		item.icons[2].tint = tint
-	end
-
 	local loader = entities.miniloader
 	local ins = entities.miniloader_ins
 	local item = entities.miniloader_item
@@ -297,13 +290,23 @@ function belt_reskin.retint_miniloader(entities, tint)
 	local f_item = entities.filter_miniloader_item
 
 	if loader and ins and item then
-		retint(loader, ins, item, tint)
+		retint(loader.structure.direction_in.sheets[2], tint)
+		retint(loader.structure.direction_out.sheets[2], tint)
+
+		retint(ins.platform_picture.sheets[2], tint)
+
+		item.icons[2].tint = tint
 
 		regroup(item, "miniloaders", "ba0")
 	end
 
 	if f_loader and f_ins and f_item then
-		retint(f_loader, f_ins, f_item, tint)
+		retint(f_loader.structure.direction_in.sheets[2], tint)
+		retint(f_loader.structure.direction_out.sheets[2], tint)
+
+		retint(f_ins.platform_picture.sheets[2], tint)
+
+		f_item.icons[2].tint = tint
 
 		regroup(f_item, "filter-miniloaders", "ba1")
 	end
@@ -324,23 +327,21 @@ function belt_reskin.retint_deadlock(entities, tint)
 	local beltbox_item = entities.deadlock_beltbox_item
 
 	if loader and loader_item and beltbox and beltbox_item then
-		loader.icons[2].tint = tint
-		loader.structure.direction_in.sheets[3].tint = tint
-		loader.structure.direction_in.sheets[3].hr_version.tint = tint
-		loader.structure.direction_out.sheets[3].tint = tint
-		loader.structure.direction_out.sheets[3].hr_version.tint = tint
+		retint(loader.structure.direction_in.sheets[3], tint)
+		retint(loader.structure.direction_out.sheets[3], tint)
 
+		loader.icons[2].tint = tint
 		loader_item.icons[2].tint = tint
+
 		regroup(loader_item, "deadlock-loaders", "bb0")
 
-		beltbox.icons[2].tint = tint
-		beltbox.animation.layers[2].tint = tint
-		beltbox.animation.layers[2].hr_version.tint = tint
-		beltbox.working_visualisations[1].animation.tint = tint
-		beltbox.working_visualisations[1].animation.hr_version.tint = brighter_colour(tint)
+		retint(beltbox.animation.layers[2], tint)
+		retint(beltbox.working_visualisations[1].animation, tint)
 		beltbox.working_visualisations[1].light.color = brighter_colour(tint)
 
+		beltbox.icons[2].tint = tint
 		beltbox_item.icons[2].tint = tint
+
 		regroup(beltbox_item, "deadlock-beltboxes", "bb1")
 	end
 end
@@ -350,17 +351,14 @@ function belt_reskin.retint_aai(entities, tint)
 	local pipe = entities.aai_pipe
 	local item = entities.aai_item
 	local tech = entities.aai_tech
+
 	if loader and pipe and item and tech then
+		retint(loader.structure.direction_in.sheets[3], tint)
+		retint(loader.structure.direction_out.sheets[3], tint)
+
 		loader.icons[2].tint = tint
-		loader.structure.direction_in.sheets[3].tint = tint
-		loader.structure.direction_in.sheets[3].hr_version.tint = tint
-		loader.structure.direction_out.sheets[3].tint = tint
-		loader.structure.direction_out.sheets[3].hr_version.tint = tint
-
-		pipe.icons[2].tint = tint
-
 		item.icons[2].tint = tint
-
+		pipe.icons[2].tint = tint
 		tech.icons[2].tint = tint
 
 		regroup(item, "aai-loaders", "bc0")
@@ -368,20 +366,21 @@ function belt_reskin.retint_aai(entities, tint)
 end
 
 function belt_reskin.retint_loader_redux(entities, tint)
-	if mods["LoaderRedux"] then
-		local ent = entities.redux_ent
-		local itm = entities.redux_item
-		if ent and itm then
-			ent.icons[2].tint = tint
-			ent.structure.direction_in.sheets[2].tint = tint
-			ent.structure.direction_in.sheets[2].hr_version.tint = tint
-			ent.structure.direction_out.sheets[2].tint = tint
-			ent.structure.direction_out.sheets[2].hr_version.tint = tint
+	if not mods["LoaderRedux"] then
+		return
+	end
 
-			itm.icons[2].tint = tint
+	local ent = entities.redux_ent
+	local itm = entities.redux_item
 
-			regroup(itm, "redux-loaders", "bd0")
-		end
+	if ent and itm then
+		retint(ent.structure.direction_in.sheets[2], tint)
+		retint(ent.structure.direction_out.sheets[2], tint)
+
+		ent.icons[2].tint = tint
+		itm.icons[2].tint = tint
+
+		regroup(itm, "redux-loaders", "bd0")
 	end
 end
 
@@ -394,12 +393,10 @@ function belt_reskin.retint_vanilla_loader(entities, tint)
 	local itm = entities.vl_item
 
 	if ent and itm then
-		ent.icons[2].tint = tint
-		ent.structure.direction_in.sheets[2].tint = tint
-		ent.structure.direction_in.sheets[2].hr_version.tint = tint
-		ent.structure.direction_out.sheets[2].tint = tint
-		ent.structure.direction_out.sheets[2].hr_version.tint = tint
+		retint(ent.structure.direction_in.sheets[2], tint)
+		retint(ent.structure.direction_out.sheets[2], tint)
 
+		ent.icons[2].tint = tint
 		itm.icons[2].tint = tint
 
 		regroup(itm, "vanilla-loaders", "be0")
