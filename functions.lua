@@ -366,10 +366,6 @@ function belt_reskin.retint_aai(entities, tint)
 end
 
 function belt_reskin.retint_loader_redux(entities, tint)
-	if not mods["LoaderRedux"] then
-		return
-	end
-
 	local ent = entities.redux_ent
 	local itm = entities.redux_item
 
@@ -385,10 +381,6 @@ function belt_reskin.retint_loader_redux(entities, tint)
 end
 
 function belt_reskin.retint_vanilla_loader(entities, tint)
-	if not mods["vanilla-loaders-hd"] then
-		return
-	end
-
 	local ent = entities.vl_ent
 	local itm = entities.vl_item
 
