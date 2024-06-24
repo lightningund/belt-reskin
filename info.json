@@ -12,7 +12,8 @@
         "(?) deadlock-integrations",
         "? UltimateBelts_Owoshima_And_Pankeko-Mod",
         "? aai-loaders",
-        "? LoaderRedux"
+        "? LoaderRedux",
+        "? vanilla-loaders-hd"
     ],
     "package": {
         "ignore": [

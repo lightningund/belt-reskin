@@ -8,6 +8,7 @@ Icons
 - [X] Loaders (AAI)
 - [X] Loaders (mini)
 - [X] Filter Loaders (mini)
+- [X] Vanilla Loaders
 
 Entities
 - [x] Belts
@@ -19,6 +20,7 @@ Entities
 - [X] Loaders (AAI)
 - [X] Loaders (mini)
 - [X] Filter Loaders (mini)
+- [X] Vanilla Loaders
 
 Remnants
 - [ ] Belts
@@ -30,12 +32,14 @@ Remnants
 - [ ] Loaders (AAI)
 - [ ] Loaders (mini)
 - [ ] Filter Loaders (mini)
+- [ ] Vanilla Loaders
 
 Technologies
 - [ ] Logistics (Vanilla)
 - [ ] Beltboxes
 - [ ] AAI Loaders
 - [ ] Miniloaders
+- [ ] Vanilla Loaders
 
 Add Tiers
 - [ ] Bob's logistics
@@ -50,6 +54,7 @@ Add Items
 - [ ] Loaders (AAI)
 - [ ] Loaders (mini)
 - [ ] Filter Loaders (mini)
+- [ ] Vanilla Loaders
 
 Reorder
 - [X] Belts
@@ -61,6 +66,7 @@ Reorder
 - [X] Loaders (AAI)
 - [X] Loaders (mini)
 - [X] Filter Loaders (mini)
+- [X] Vanilla Loaders
 
 Micro Furnaces?
 - [ ] Furnace Entities

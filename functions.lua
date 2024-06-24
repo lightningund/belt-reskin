@@ -345,3 +345,24 @@ function belt_reskin.retint_loader_redux(entities, tint)
 		end
 	end
 end
+
+function belt_reskin.retint_vanilla_loader(entities, tint)
+	if not mods["vanilla-loaders-hd"] then
+		return
+	end
+
+	local ent = entities.vl_ent
+	local itm = entities.vl_item
+
+	if ent and itm then
+		ent.icons[2].tint = tint
+		ent.structure.direction_in.sheets[2].tint = tint
+		ent.structure.direction_in.sheets[2].hr_version.tint = tint
+		ent.structure.direction_out.sheets[2].tint = tint
+		ent.structure.direction_out.sheets[2].hr_version.tint = tint
+
+		itm.icons[2].tint = tint
+
+		regroup(itm, "vanilla-loaders", "be0")
+	end
+end

@@ -64,6 +64,10 @@ for prefix, properties in pairs(tiers) do
 		-- Loader Redux
 		redux_ent = data.raw["loader"][prefix .. "loader"],
 		redux_item = data.raw["item"][prefix .. "loader"],
+
+		-- Vanilla Loaders HD
+		vl_ent = data.raw["loader"][ml_prefix .. "loader"],
+		vl_item = data.raw["item"][ml_prefix .. "loader"],
 	}
 
 	-- Reskin the belts on all related entity types
@@ -124,6 +128,9 @@ for prefix, properties in pairs(tiers) do
 
 	-- Retint Loader Redux loaders
 	belt_reskin.retint_loader_redux(entities, col)
+
+	-- Retint Vanilla Loader HD loaders
+	belt_reskin.retint_vanilla_loader(entities, col)
 end
 
 local v_loader = data.raw["loader-1x1"]["loader-1x1"]
