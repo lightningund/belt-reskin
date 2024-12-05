@@ -6,6 +6,7 @@
     "author": "lightningund",
     "dependencies": [
         "base",
+        "? space-age",
         "? UltimateBelts",
         "? miniloader",
         "? deadlock-beltboxes-loaders",
