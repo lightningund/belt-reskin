@@ -22,6 +22,18 @@ data:extend({
 	},
 })
 
+if mods["space-age"] then
+	data:extend({
+		{
+			type = "color-setting",
+			name = "belt-reskin-turbo-color",
+			setting_type = "startup",
+			default_value = {160, 180, 76},
+			order = "0d"
+		}
+	})
+end
+
 data:extend({
 	{
 		type = "bool-setting",

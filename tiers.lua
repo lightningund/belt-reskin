@@ -16,6 +16,14 @@ local tiers = {
 	}
 }
 
+if mods["space-age"] then
+	tiers["turbo-"] = {
+		technology = "turbo-transport-belt",
+		fast = true,
+		suffix = "transport-belt"
+	}
+end
+
 if mods["UltimateBelts"] then
 	tiers["ultra-fast-"] = {
 		ml_prefix = "ub-ultra-fast-",
