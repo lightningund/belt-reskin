@@ -209,7 +209,7 @@ end
 
 local function retint(sheet, tint)
 	sheet.tint = tint
-	-- sheet.hr_version.tint = tint
+	sheet.hr_version.tint = tint
 end
 
 local function regroup(item, subgroup, order)
@@ -327,16 +327,16 @@ function belt_reskin.retint_deadlock(entities, tint)
 	local beltbox_item = entities.deadlock_beltbox_item
 
 	if loader and loader_item and beltbox and beltbox_item then
-		retint(loader.structure.direction_in.sheets[3], tint)
-		retint(loader.structure.direction_out.sheets[3], tint)
+		loader.structure.direction_in.sheets[3].tint = tint
+		loader.structure.direction_out.sheets[3].tint = tint
 
 		loader.icons[2].tint = tint
 		loader_item.icons[2].tint = tint
 
 		regroup(loader_item, "deadlock-loaders", "bb0")
 
-		retint(beltbox.graphics_set.animation.layers[2], tint)
-		retint(beltbox.graphics_set.working_visualisations[1].animation, tint)
+		beltbox.graphics_set.animation.layers[2].tint = tint
+		beltbox.graphics_set.working_visualisations[1].animation.tint = tint
 		beltbox.graphics_set.working_visualisations[1].light.color = brighter_colour(tint)
 
 		beltbox.icons[2].tint = tint
@@ -353,8 +353,8 @@ function belt_reskin.retint_aai(entities, tint)
 	local tech = entities.aai_tech
 
 	if loader and pipe and item and tech then
-		retint(loader.structure.direction_in.sheets[3], tint)
-		retint(loader.structure.direction_out.sheets[3], tint)
+		loader.structure.direction_in.sheets[3].tint = tint
+		loader.structure.direction_out.sheets[3].tint = tint
 
 		loader.icons[2].tint = tint
 		item.icons[2].tint = tint
@@ -385,8 +385,8 @@ function belt_reskin.retint_vanilla_loader(entities, tint)
 	local itm = entities.vl_item
 
 	if ent and itm then
-		retint(ent.structure.direction_in.sheets[2], tint)
-		retint(ent.structure.direction_out.sheets[2], tint)
+		ent.structure.direction_in.sheets[2].tint = tint
+		ent.structure.direction_out.sheets[2].tint = tint
 
 		ent.icons[2].tint = tint
 		itm.icons[2].tint = tint
