@@ -66,8 +66,9 @@ function belt_reskin.transport_belt_animation_set(arrow_tint, belt_tint, fast)
 		return {
 			filename = "__belt-reskin__/graphics/entity/transport-belt/hr-" .. variant .. "belt" .. file .. ".png",
 			priority = "extra-high",
-			width = 64,
-			height = 64,
+			width = 128,
+			height = 128,
+			scale = 0.5,
 			frame_count = frames,
 			direction_count = 20,
 			tint = tint
@@ -95,16 +96,18 @@ function belt_reskin.underground_belt_sprite_set(tint)
 				{
 					filename = "__belt-reskin__/graphics/entity/underground-belt/hr-underground-base.png",
 					priority = "extra-high",
-					width = 96,
-					height = 96,
-					y = yoff
+					width = 192,
+					height = 192,
+					y = yoff * 2,
+					scale = 0.5
 				},
 				{
 					filename = "__belt-reskin__/graphics/entity/underground-belt/hr-underground-arrows.png",
 					priority = "extra-high",
-					width = 96,
-					height = 96,
-					y = yoff,
+					width = 192,
+					height = 192,
+					y = yoff * 2,
+					scale = 0.5,
 					tint = tint
 				}
 			}
@@ -127,9 +130,10 @@ function belt_reskin.splitter_sprite_set(entity, tint)
 		local obj = {
 			filename = "__belt-reskin__/graphics/entity/splitter/hr-splitter-" .. file .. ".png",
 			priority = "extra-high",
-			width = width,
-			height = height,
-			shift = util.by_pixel(shiftx, shifty)
+			width = width * 2,
+			height = height * 2,
+			shift = util.by_pixel(shiftx, shifty),
+			scale = 0.5
 		}
 
 		if sheet then
