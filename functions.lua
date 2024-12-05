@@ -12,13 +12,11 @@ local function icon(file, tint)
 	return {
 		{
 			icon = "__belt-reskin__/graphics/icons/" .. file .. "-base.png",
-			icon_size = 64,
-			icon_mipmaps = 4
+			icon_size = 64
 		},
 		{
 			icon = "__belt-reskin__/graphics/icons/" .. file .. "-mask.png",
 			icon_size = 64,
-			icon_mipmaps = 4,
 			tint = tint
 		}
 	}
@@ -259,7 +257,7 @@ function belt_reskin.retint_miniloader(entities, tint)
 
 		retint(ins.platform_picture.sheets[2], tint)
 
-		item.icons[2].tint = tint
+		retint(item.icons[2], tint)
 
 		regroup(item, "miniloaders", "ba0")
 	end
@@ -270,7 +268,7 @@ function belt_reskin.retint_miniloader(entities, tint)
 
 		retint(f_ins.platform_picture.sheets[2], tint)
 
-		f_item.icons[2].tint = tint
+		retint(f_item.icons[2], tint)
 
 		regroup(f_item, "filter-miniloaders", "ba1")
 	end

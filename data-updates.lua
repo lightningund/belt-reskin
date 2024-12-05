@@ -73,7 +73,9 @@ for prefix, properties in pairs(tiers) do
 	-- Reskin the belts on all related entity types
 	for _, entity in pairs(entities) do
 		if entity then
-			entity.belt_animation_set = belt_animation_sets[prefix .. properties.suffix]
+			if entity.belt_animation_set then
+				entity.belt_animation_set = belt_animation_sets[prefix .. properties.suffix]
+			end
 		end
 	end
 
