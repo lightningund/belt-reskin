@@ -209,7 +209,7 @@ end
 
 local function retint(sheet, tint)
 	sheet.tint = tint
-	sheet.hr_version.tint = tint
+	-- sheet.hr_version.tint = tint
 end
 
 local function regroup(item, subgroup, order)
@@ -335,9 +335,9 @@ function belt_reskin.retint_deadlock(entities, tint)
 
 		regroup(loader_item, "deadlock-loaders", "bb0")
 
-		retint(beltbox.animation.layers[2], tint)
-		retint(beltbox.working_visualisations[1].animation, tint)
-		beltbox.working_visualisations[1].light.color = brighter_colour(tint)
+		retint(beltbox.graphics_set.animation.layers[2], tint)
+		retint(beltbox.graphics_set.working_visualisations[1].animation, tint)
+		beltbox.graphics_set.working_visualisations[1].light.color = brighter_colour(tint)
 
 		beltbox.icons[2].tint = tint
 		beltbox_item.icons[2].tint = tint

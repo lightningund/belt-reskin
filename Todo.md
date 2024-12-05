@@ -79,3 +79,6 @@ Add Color Coding?
 - [ ] Walls
 - [ ] Lamps
 - [ ] For each tier
+
+Add Support
+- [ ] Black Belts

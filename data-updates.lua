@@ -83,8 +83,8 @@ for prefix, properties in pairs(tiers) do
 	-- Reskin Vanilla entities and items
 	belt_reskin.reskin_vanilla(entities, col)
 
-	-- Retint Miniloader
-	belt_reskin.retint_miniloader(entities, col)
+	-- -- Retint Miniloader
+	-- belt_reskin.retint_miniloader(entities, col)
 
 	-- Retint Deadlock loaders
 	belt_reskin.retint_deadlock(entities, col)
@@ -92,8 +92,8 @@ for prefix, properties in pairs(tiers) do
 	-- Retint AAI loaders
 	belt_reskin.retint_aai(entities, col)
 
-	-- Retint Loader Redux loaders
-	belt_reskin.retint_loader_redux(entities, col)
+	-- -- Retint Loader Redux loaders
+	-- belt_reskin.retint_loader_redux(entities, col)
 
 	-- Retint Vanilla Loader HD loaders
 	belt_reskin.retint_vanilla_loader(entities, col)
