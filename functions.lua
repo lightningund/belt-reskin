@@ -64,23 +64,13 @@ function belt_reskin.transport_belt_animation_set(arrow_tint, belt_tint, fast)
 
 	local function make_anim(file, tint)
 		return {
-			filename = "__belt-reskin__/graphics/entity/transport-belt/" .. variant .. "belt" .. file .. ".png",
+			filename = "__belt-reskin__/graphics/entity/transport-belt/hr-" .. variant .. "belt" .. file .. ".png",
 			priority = "extra-high",
 			width = 64,
 			height = 64,
 			frame_count = frames,
 			direction_count = 20,
-			tint = tint,
-			hr_version = {
-				filename = "__belt-reskin__/graphics/entity/transport-belt/hr-" .. variant .. "belt" .. file .. ".png",
-				priority = "extra-high",
-				width = 128,
-				height = 128,
-				scale = 0.5,
-				frame_count = frames,
-				direction_count = 20,
-				tint = tint
-			}
+			tint = tint
 		}
 	end
 
@@ -103,36 +93,19 @@ function belt_reskin.underground_belt_sprite_set(tint)
 		return {
 			sheets = {
 				{
-					filename = "__belt-reskin__/graphics/entity/underground-belt/underground-base.png",
+					filename = "__belt-reskin__/graphics/entity/underground-belt/hr-underground-base.png",
 					priority = "extra-high",
 					width = 96,
 					height = 96,
-					y = yoff,
-					hr_version = {
-						filename = "__belt-reskin__/graphics/entity/underground-belt/hr-underground-base.png",
-						priority = "extra-high",
-						width = 192,
-						height = 192,
-						y = yoff * 2,
-						scale = 0.5
-					}
+					y = yoff
 				},
 				{
-					filename = "__belt-reskin__/graphics/entity/underground-belt/underground-arrows.png",
+					filename = "__belt-reskin__/graphics/entity/underground-belt/hr-underground-arrows.png",
 					priority = "extra-high",
 					width = 96,
 					height = 96,
 					y = yoff,
-					tint = tint,
-					hr_version = {
-						filename = "__belt-reskin__/graphics/entity/underground-belt/hr-underground-arrows.png",
-						priority = "extra-high",
-						width = 192,
-						height = 192,
-						y = yoff * 2,
-						scale = 0.5,
-						tint = tint
-					}
+					tint = tint
 				}
 			}
 		}
@@ -152,34 +125,22 @@ end
 function belt_reskin.splitter_sprite_set(entity, tint)
 	local function sprite(file, hastint, width, height, shiftx, shifty, sheet)
 		local obj = {
-			filename = "__belt-reskin__/graphics/entity/splitter/splitter-" .. file .. ".png",
+			filename = "__belt-reskin__/graphics/entity/splitter/hr-splitter-" .. file .. ".png",
 			priority = "extra-high",
 			width = width,
 			height = height,
-			shift = util.by_pixel(shiftx, shifty),
-			hr_version = {
-				filename = "__belt-reskin__/graphics/entity/splitter/hr-splitter-" .. file .. ".png",
-				priority = "extra-high",
-				width = width * 2,
-				height = height * 2,
-				shift = util.by_pixel(shiftx, shifty),
-				scale = 0.5
-			}
+			shift = util.by_pixel(shiftx, shifty)
 		}
 
 		if sheet then
 			obj.frame_count = 32
 			obj.line_length = 8
-			obj.hr_version.frame_count = 32
-			obj.hr_version.line_length = 8
 		else
 			obj.repeat_count = 32
-			obj.hr_version.repeat_count = 32
 		end
 
 		if hastint then
 			obj.tint = tint
-			obj.hr_version.tint = tint
 		end
 
 		return obj
@@ -209,7 +170,6 @@ end
 
 local function retint(sheet, tint)
 	sheet.tint = tint
-	sheet.hr_version.tint = tint
 end
 
 local function regroup(item, subgroup, order)
@@ -327,20 +287,21 @@ function belt_reskin.retint_deadlock(entities, tint)
 	local beltbox_item = entities.deadlock_beltbox_item
 
 	if loader and loader_item and beltbox and beltbox_item then
-		loader.structure.direction_in.sheets[3].tint = tint
-		loader.structure.direction_out.sheets[3].tint = tint
+		retint(loader.structure.direction_in.sheets[3], tint)
+		retint(loader.structure.direction_out.sheets[3], tint)
 
-		loader.icons[2].tint = tint
-		loader_item.icons[2].tint = tint
+		retint(loader.icons[2], tint)
+		retint(loader_item.icons[2], tint)
 
 		regroup(loader_item, "deadlock-loaders", "bb0")
 
-		beltbox.graphics_set.animation.layers[2].tint = tint
-		beltbox.graphics_set.working_visualisations[1].animation.tint = tint
+		retint(beltbox.graphics_set.animation.layers[2], tint)
+		retint(beltbox.graphics_set.working_visualisations[1].animation, tint)
+
 		beltbox.graphics_set.working_visualisations[1].light.color = brighter_colour(tint)
 
-		beltbox.icons[2].tint = tint
-		beltbox_item.icons[2].tint = tint
+		retint(beltbox.icons[2], tint)
+		retint(beltbox_item.icons[2], tint)
 
 		regroup(beltbox_item, "deadlock-beltboxes", "bb1")
 	end
@@ -353,13 +314,13 @@ function belt_reskin.retint_aai(entities, tint)
 	local tech = entities.aai_tech
 
 	if loader and pipe and item and tech then
-		loader.structure.direction_in.sheets[3].tint = tint
-		loader.structure.direction_out.sheets[3].tint = tint
+		retint(loader.structure.direction_in.sheets[3], tint)
+		retint(loader.structure.direction_out.sheets[3], tint)
 
-		loader.icons[2].tint = tint
-		item.icons[2].tint = tint
-		pipe.icons[2].tint = tint
-		tech.icons[2].tint = tint
+		retint(loader.icons[2], tint)
+		retint(item.icons[2], tint)
+		retint(pipe.icons[2], tint)
+		retint(tech.icons[2], tint)
 
 		regroup(item, "aai-loaders", "bc0")
 	end
@@ -373,8 +334,8 @@ function belt_reskin.retint_loader_redux(entities, tint)
 		retint(ent.structure.direction_in.sheets[2], tint)
 		retint(ent.structure.direction_out.sheets[2], tint)
 
-		ent.icons[2].tint = tint
-		itm.icons[2].tint = tint
+		retint(ent.icons[2], tint)
+		retint(itm.icons[2], tint)
 
 		regroup(itm, "redux-loaders", "bd0")
 	end
@@ -385,11 +346,11 @@ function belt_reskin.retint_vanilla_loader(entities, tint)
 	local itm = entities.vl_item
 
 	if ent and itm then
-		ent.structure.direction_in.sheets[2].tint = tint
-		ent.structure.direction_out.sheets[2].tint = tint
+		retint(ent.structure.direction_in.sheets[2], tint)
+		retint(ent.structure.direction_out.sheets[2], tint)
 
-		ent.icons[2].tint = tint
-		itm.icons[2].tint = tint
+		retint(ent.icons[2], tint)
+		retint(itm.icons[2], tint)
 
 		regroup(itm, "vanilla-loaders", "be0")
 	end
