@@ -39,36 +39,56 @@ for prefix, properties in pairs(tiers) do
 		splitter = data.raw["splitter"][prefix .. "splitter"],
 		splitter_item = data.raw["item"][prefix .. "splitter"],
 		underground = data.raw["underground-belt"][prefix .. "underground-belt"],
-		underground_item = data.raw["item"][prefix .. "underground-belt"],
-
-		-- Miniloader
-		miniloader = data.raw["loader-1x1"][ml_prefix .. "miniloader-loader"],
-		miniloader_ins = data.raw["inserter"][ml_prefix .. "miniloader-inserter"],
-		miniloader_item = data.raw["item"][ml_prefix .. "miniloader"],
-		filter_miniloader = data.raw["loader-1x1"][ml_prefix .. "filter-miniloader-loader"],
-		filter_miniloader_ins = data.raw["inserter"][ml_prefix .. "filter-miniloader-inserter"],
-		filter_miniloader_item = data.raw["item"][ml_prefix .. "filter-miniloader"],
-
-		-- Deadlock Stacking Beltboxes and Compact loaders
-		deadlock_loader = data.raw["loader-1x1"][prefix .. properties.suffix .. "-loader"],
-		deadlock_loader_item = data.raw["item"][prefix .. properties.suffix .. "-loader"],
-		deadlock_beltbox = data.raw["furnace"][prefix .. properties.suffix .. "-beltbox"],
-		deadlock_beltbox_item = data.raw["item"][prefix .. properties.suffix .. "-beltbox"],
-
-		-- AAI Loader
-		aai_loader = data.raw["loader-1x1"]["aai-" .. prefix .. "loader"],
-		aai_pipe = data.raw["storage-tank"]["aai-" .. prefix .. "loader-pipe"],
-		aai_item = data.raw["item"]["aai-" .. prefix .. "loader"],
-		aai_tech = data.raw["technology"]["aai-" .. prefix .. "loader"],
-
-		-- Loader Redux
-		redux_ent = data.raw["loader"][prefix .. "loader"],
-		redux_item = data.raw["item"][prefix .. "loader"],
-
-		-- Vanilla Loaders HD
-		vl_ent = data.raw["loader"][ml_prefix .. "loader"],
-		vl_item = data.raw["item"][ml_prefix .. "loader"],
+		underground_item = data.raw["item"][prefix .. "underground-belt"]
 	}
+
+	-- Miniloader
+	if mods["miniloader"] then
+		entities["miniloader"] = data.raw["loader-1x1"][ml_prefix .. "miniloader-loader"]
+		entities["miniloader_ins"] = data.raw["inserter"][ml_prefix .. "miniloader-inserter"]
+		entities["miniloader_item"] = data.raw["item"][ml_prefix .. "miniloader"]
+		entities["filter_miniloader"] = data.raw["loader-1x1"][ml_prefix .. "filter-miniloader-loader"]
+		entities["filter_miniloader_ins"] = data.raw["inserter"][ml_prefix .. "filter-miniloader-inserter"]
+		entities["filter_miniloader_item"] = data.raw["item"][ml_prefix .. "filter-miniloader"]
+
+		belt_reskin.retint_miniloader(entities, col)
+	end
+
+	-- Deadlock Stacking Beltboxes and Compact loaders
+	if mods["deadlock-beltboxes-loaders"] then
+		entities["deadlock_loader"] = data.raw["loader-1x1"][prefix .. properties.suffix .. "-loader"]
+		entities["deadlock_loader_item"] = data.raw["item"][prefix .. properties.suffix .. "-loader"]
+		entities["deadlock_beltbox"] = data.raw["furnace"][prefix .. properties.suffix .. "-beltbox"]
+		entities["deadlock_beltbox_item"] = data.raw["item"][prefix .. properties.suffix .. "-beltbox"]
+
+		belt_reskin.retint_deadlock(entities, col)
+	end
+
+	-- AAI Loader
+	if mods["aai-loaders"] then
+		entities["aai_loader"] = data.raw["loader-1x1"]["aai-" .. prefix .. "loader"]
+		entities["aai_pipe"] = data.raw["storage-tank"]["aai-" .. prefix .. "loader-pipe"]
+		entities["aai_item"] = data.raw["item"]["aai-" .. prefix .. "loader"]
+		entities["aai_tech"] = data.raw["technology"]["aai-" .. prefix .. "loader"]
+
+		belt_reskin.retint_aai(entities, col)
+	end
+
+	-- Loader Redux
+	if mods["LoaderRedux"] then
+		entities["redux_ent"] = data.raw["loader"][prefix .. "loader"]
+		entities["redux_item"] = data.raw["item"][prefix .. "loader"]
+
+		belt_reskin.retint_loader_redux(entities, col)
+	end
+
+	-- Vanilla Loaders HD
+	if mods["vanilla-loaders-hd"] then
+		entities["vl_ent"] = data.raw["loader"][ml_prefix .. "loader"]
+		entities["vl_item"] = data.raw["item"][ml_prefix .. "loader"]
+
+		belt_reskin.retint_vanilla_loader(entities, col)
+	end
 
 	-- Reskin the belts on all related entity types
 	for _, entity in pairs(entities) do
@@ -84,21 +104,6 @@ for prefix, properties in pairs(tiers) do
 
 	-- Reskin Vanilla entities and items
 	belt_reskin.reskin_vanilla(entities, col)
-
-	-- -- Retint Miniloader
-	-- belt_reskin.retint_miniloader(entities, col)
-
-	-- Retint Deadlock loaders
-	belt_reskin.retint_deadlock(entities, col)
-
-	-- Retint AAI loaders
-	belt_reskin.retint_aai(entities, col)
-
-	-- -- Retint Loader Redux loaders
-	-- belt_reskin.retint_loader_redux(entities, col)
-
-	-- Retint Vanilla Loader HD loaders
-	belt_reskin.retint_vanilla_loader(entities, col)
 end
 
 local v_loader = data.raw["loader-1x1"]["loader-1x1"]

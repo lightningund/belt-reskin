@@ -1,7 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.3
 Date: ????
+  Bugfixes:
+    - Fixed a crash that happened if you started the game without the vanilla loaders mod
   Changes:
+    - Restructured the way that modded items are processed for better future-proofing
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.2
 Date: 2024-12-05
