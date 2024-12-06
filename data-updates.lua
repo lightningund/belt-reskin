@@ -41,10 +41,13 @@ for prefix, properties in pairs(tiers) do
 		-- Vanilla
 		belt = data.raw["transport-belt"][prefix .. properties.suffix],
 		belt_item = data.raw["item"][prefix .. properties.suffix],
+		belt_recipe = data.raw["recipe"][prefix .. properties.suffix],
 		splitter = data.raw["splitter"][prefix .. "splitter"],
 		splitter_item = data.raw["item"][prefix .. "splitter"],
+		splitter_recipe = data.raw["recipe"][prefix .. "splitter"],
 		underground = data.raw["underground-belt"][prefix .. "underground-belt"],
-		underground_item = data.raw["item"][prefix .. "underground-belt"]
+		underground_item = data.raw["item"][prefix .. "underground-belt"],
+		underground_recipe = data.raw["recipe"][prefix .. "underground-belt"]
 	}
 
 	-- Miniloader
@@ -108,10 +111,13 @@ for prefix, properties in pairs(tiers) do
 		if properties.postfix then
 			entities["belt"] = data.raw["transport-belt"]["5d-transport-belt" .. properties.postfix]
 			entities["belt_item"] = data.raw["item"]["5d-transport-belt" .. properties.postfix]
+			entities["belt_recipe"] = data.raw["recipe"]["5d-transport-belt" .. properties.postfix]
 			entities["splitter"] = data.raw["splitter"]["5d-splitter" .. properties.postfix]
 			entities["splitter_item"] = data.raw["item"]["5d-splitter" .. properties.postfix]
+			entities["splitter_recipe"] = data.raw["recipe"]["5d-splitter" .. properties.postfix]
 			entities["underground"] = data.raw["underground-belt"]["5d-underground-belt" .. properties.postfix]
 			entities["underground_item"] = data.raw["item"]["5d-underground-belt" .. properties.postfix]
+			entities["underground_recipe"] = data.raw["recipe"]["5d-underground-belt" .. properties.postfix]
 
 			belt_reskin.reskin_vanilla(entities, col)
 

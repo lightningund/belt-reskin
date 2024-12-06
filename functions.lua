@@ -225,6 +225,11 @@ function belt_reskin.reskin_vanilla(entities, tint)
 		if entities.belt_item then
 			entities.belt_item.icons = icons
 		end
+
+		-- And the recipe
+		if entities.belt_recipe then
+			entities.belt_recipe.icons = icons
+		end
 	end
 
 	-- Reskin the Splitter
@@ -238,6 +243,11 @@ function belt_reskin.reskin_vanilla(entities, tint)
 		if entities.splitter_item then
 			entities.splitter_item.icons = icons
 		end
+
+		-- And the recipe
+		if entities.splitter_recipe then
+			entities.splitter_recipe.icons = icons
+		end
 	end
 
 	-- Reskin the Underground
@@ -250,6 +260,11 @@ function belt_reskin.reskin_vanilla(entities, tint)
 		-- And the item to match
 		if entities.underground_item then
 			entities.underground_item.icons = icons
+		end
+
+		-- And the recipe
+		if entities.underground_recipe then
+			entities.underground_recipe.icons = icons
 		end
 	end
 end
