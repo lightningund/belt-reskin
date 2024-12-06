@@ -15,7 +15,8 @@
         "? aai-loaders",
         "? LoaderRedux",
         "? vanilla-loaders-hd",
-        "? loaders-modernized"
+        "? loaders-modernized",
+        "? 5dim_transport"
     ],
     "package": {
         "ignore": [

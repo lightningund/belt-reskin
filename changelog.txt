@@ -1,7 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.5
 Date: ????
-  Changes:
+  Major Features:
+    - Added 5Dims Transport support
+  Minor Features:
+    - Added better support for 5Dims x Loaders Modernized
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.4
 Date: 2024-12-06

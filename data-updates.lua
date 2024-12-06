@@ -20,6 +20,11 @@ for prefix, properties in pairs(tiers) do
 		settings_name = "belt-reskin-ultimate-color"
 	end
 
+	-- And so did 5dims
+	if properties.postfix then
+		settings_name = "belt-reskin-5d" .. properties.postfix
+	end
+
 	local col ---@type Color
 	if settings.startup[settings_name] then
 		col = settings.startup[settings_name].value --[[@as Color]]
@@ -96,6 +101,28 @@ for prefix, properties in pairs(tiers) do
 		entities["modern_item"] = data.raw["item"][prefix .. "mdrn-loader"]
 
 		belt_reskin.retint_modernized_loaders(entities, col)
+	end
+
+	-- 5Dims
+	if mods["5dim_transport"] then
+		if properties.postfix then
+			entities["belt"] = data.raw["transport-belt"]["5d-transport-belt" .. properties.postfix]
+			entities["belt_item"] = data.raw["item"]["5d-transport-belt" .. properties.postfix]
+			entities["splitter"] = data.raw["splitter"]["5d-splitter" .. properties.postfix]
+			entities["splitter_item"] = data.raw["item"]["5d-splitter" .. properties.postfix]
+			entities["underground"] = data.raw["underground-belt"]["5d-underground-belt" .. properties.postfix]
+			entities["underground_item"] = data.raw["item"]["5d-underground-belt" .. properties.postfix]
+
+			belt_reskin.reskin_vanilla(entities, col)
+
+			-- Loaders Modernized x 5Dims
+			if mods["loaders-modernized"] then
+				entities["modern_ent"] = data.raw["loader-1x1"]["mdrn-loader" .. properties.postfix]
+				entities["modern_item"] = data.raw["item"]["mdrn-loader" .. properties.postfix]
+
+				belt_reskin.retint_modernized_loaders(entities, col)
+			end
+		end
 	end
 
 	-- Reskin the belts on all related entity types

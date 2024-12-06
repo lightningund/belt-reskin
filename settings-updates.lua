@@ -44,6 +44,18 @@ data:extend({
 	}
 })
 
+if mods["5dim_transport"] then
+	for i = 4,10 do
+		data:extend({{
+			type = "color-setting",
+			name = "belt-reskin-5d-" .. string.format("%02d", i),
+			setting_type = "startup",
+			default_value = {160, 180, 76},
+			order = "2" .. string.char(93 + i)
+		}})
+	end
+end
+
 if mods["UltimateBelts"] then
 	local ub_tiers = {
 		{

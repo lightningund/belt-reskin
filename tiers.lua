@@ -24,6 +24,16 @@ if mods["space-age"] then
 	}
 end
 
+if mods["5dim_transport"] then
+	for i = 4, 10 do
+		tiers["5d-" .. tostring(i)] = {
+			fast = true,
+			suffix = "transport-belt",
+			postfix = string.format("-%02d", i)
+		}
+	end
+end
+
 if mods["UltimateBelts"] then
 	tiers["ultra-fast-"] = {
 		ml_prefix = "ub-ultra-fast-",
