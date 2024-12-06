@@ -185,6 +185,11 @@ local function regroup(item, subgroup, order)
 					order = order,
 				}
 			})
+		else
+			local sg_data = data.raw["item-subgroup"][subgroup]
+			sg_data.name = subgroup
+			sg_data.group = "logistics"
+			sg_data.order = order
 		end
 
 		if item then
