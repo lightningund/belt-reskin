@@ -174,6 +174,12 @@ local function retint(sheet, tint)
 	sheet.tint = tint
 end
 
+-- Retints ent.structure.direction_in/out.sheets[sheet_num]
+local function retint_dir_sheets(ent, sheet_num, tint)
+	retint(ent.structure.direction_in.sheets[sheet_num], tint)
+	retint(ent.structure.direction_out.sheets[sheet_num], tint)
+end
+
 local function regroup(item, subgroup, order)
 	if settings.startup["belt-reskin-regroup"].value then
 		if not data.raw["item-subgroup"][subgroup] then
@@ -257,8 +263,7 @@ function belt_reskin.retint_miniloader(entities, tint)
 	local f_item = entities.filter_miniloader_item
 
 	if loader and ins and item then
-		retint(loader.structure.direction_in.sheets[2], tint)
-		retint(loader.structure.direction_out.sheets[2], tint)
+		retint_dir_sheets(loader, 2, tint)
 
 		retint(ins.platform_picture.sheets[2], tint)
 
@@ -268,8 +273,7 @@ function belt_reskin.retint_miniloader(entities, tint)
 	end
 
 	if f_loader and f_ins and f_item then
-		retint(f_loader.structure.direction_in.sheets[2], tint)
-		retint(f_loader.structure.direction_out.sheets[2], tint)
+		retint_dir_sheets(f_loader, 2, tint)
 
 		retint(f_ins.platform_picture.sheets[2], tint)
 
@@ -294,8 +298,7 @@ function belt_reskin.retint_deadlock(entities, tint)
 	local beltbox_item = entities.deadlock_beltbox_item
 
 	if loader and loader_item and beltbox and beltbox_item then
-		retint(loader.structure.direction_in.sheets[3], tint)
-		retint(loader.structure.direction_out.sheets[3], tint)
+		retint_dir_sheets(loader, 3, tint)
 
 		retint(loader.icons[2], tint)
 		retint(loader_item.icons[2], tint)
@@ -321,8 +324,7 @@ function belt_reskin.retint_aai(entities, tint)
 	local tech = entities.aai_tech
 
 	if loader and pipe and item and tech then
-		retint(loader.structure.direction_in.sheets[3], tint)
-		retint(loader.structure.direction_out.sheets[3], tint)
+		retint_dir_sheets(loader, 3, tint)
 
 		retint(loader.icons[2], tint)
 		retint(item.icons[2], tint)
@@ -338,8 +340,7 @@ function belt_reskin.retint_loader_redux(entities, tint)
 	local itm = entities.redux_item
 
 	if ent and itm then
-		retint(ent.structure.direction_in.sheets[2], tint)
-		retint(ent.structure.direction_out.sheets[2], tint)
+		retint_dir_sheets(ent, 2, tint)
 
 		retint(ent.icons[2], tint)
 		retint(itm.icons[2], tint)
@@ -353,8 +354,7 @@ function belt_reskin.retint_vanilla_loader(entities, tint)
 	local itm = entities.vl_item
 
 	if ent and itm then
-		retint(ent.structure.direction_in.sheets[2], tint)
-		retint(ent.structure.direction_out.sheets[2], tint)
+		retint_dir_sheets(ent, 2, tint)
 
 		retint(ent.icons[2], tint)
 		retint(itm.icons[2], tint)
@@ -370,11 +370,9 @@ function belt_reskin.retint_modernized_loaders(entities, tint)
 	if ent and itm then
 		local using_aai_graphics = settings.startup["mdrn-use-aai-graphics"]
 		if using_aai_graphics and using_aai_graphics.value then
-			retint(ent.structure.direction_in.sheets[3], tint)
-			retint(ent.structure.direction_out.sheets[3], tint)
+			retint_dir_sheets(ent, 3, tint)
 		else
-			retint(ent.structure.direction_in.sheets[2], tint)
-			retint(ent.structure.direction_out.sheets[2], tint)
+			retint_dir_sheets(ent, 2, tint)
 		end
 
 		retint(ent.icons[2], tint)
