@@ -90,6 +90,14 @@ for prefix, properties in pairs(tiers) do
 		belt_reskin.retint_vanilla_loader(entities, col)
 	end
 
+	-- Loaders Modernized
+	if mods["loaders-modernized"] then
+		entities["modern_ent"] = data.raw["loader-1x1"][prefix .. "mdrn-loader"]
+		entities["modern_item"] = data.raw["item"][prefix .. "mdrn-loader"]
+
+		belt_reskin.retint_modernized_loaders(entities, col)
+	end
+
 	-- Reskin the belts on all related entity types
 	for _, entity in pairs(entities) do
 		if entity then

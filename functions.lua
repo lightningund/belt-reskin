@@ -357,3 +357,24 @@ function belt_reskin.retint_vanilla_loader(entities, tint)
 		regroup(itm, "vanilla-loaders", "be0")
 	end
 end
+
+function belt_reskin.retint_modernized_loaders(entities, tint)
+	local ent = entities.modern_ent
+	local itm = entities.modern_item
+
+	if ent and itm then
+		local using_aai_graphics = settings.startup["mdrn-use-aai-graphics"]
+		if using_aai_graphics and using_aai_graphics.value then
+			retint(ent.structure.direction_in.sheets[3], tint)
+			retint(ent.structure.direction_out.sheets[3], tint)
+		else
+			retint(ent.structure.direction_in.sheets[2], tint)
+			retint(ent.structure.direction_out.sheets[2], tint)
+		end
+
+		retint(ent.icons[2], tint)
+		retint(itm.icons[2], tint)
+
+		regroup(itm, "modernized-loaders", "bf0")
+	end
+end

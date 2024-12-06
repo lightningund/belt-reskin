@@ -14,7 +14,8 @@
         "? UltimateBelts_Owoshima_And_Pankeko-Mod",
         "? aai-loaders",
         "? LoaderRedux",
-        "? vanilla-loaders-hd"
+        "? vanilla-loaders-hd",
+        "? loaders-modernized"
     ],
     "package": {
         "ignore": [
