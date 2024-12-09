@@ -214,6 +214,7 @@ local function regroup(item, subgroup, order)
 
 		if item then
 			item.subgroup = subgroup
+			item.group = "logistics"
 
 			local recipe = data.raw["recipe"][item.name]
 			if recipe then
