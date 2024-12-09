@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.5
-Date: ????
+Date: 2024-12-09
   Changes:
     - Moved everything into data-final-fixes to make sure other mods don't overwrite our setup
   Major Features:
