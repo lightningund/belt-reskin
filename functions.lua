@@ -8,6 +8,12 @@
 -- Make our function host
 if not belt_reskin then belt_reskin = {} end
 
+local function try_assign(obj, prop, val)
+	if obj then
+		obj[prop] = val
+	end
+end
+
 local function icon(file, tint)
 	return {
 		{
@@ -215,57 +221,44 @@ function belt_reskin.regroup_vanilla(entities)
 	regroup(entities.underground_item, "underground-belts", "a2")
 end
 
+-- For the vanilla items... and 5dims transport
 function belt_reskin.reskin_vanilla(entities, tint)
 	-- Reskin the belt icon
-	if entities.belt then
-		local icons = belt_reskin.transport_belt_icon(tint)
-		entities.belt.icons = icons
+	local belt_icons = belt_reskin.transport_belt_icon(tint)
+	try_assign(entities.belt, "icons", belt_icons)
+	try_assign(entities.belt_item, "icons", belt_icons)
+	try_assign(entities.belt_recipe, "icons", belt_icons)
 
-		-- And the item to match
-		if entities.belt_item then
-			entities.belt_item.icons = icons
-		end
+	-- Reskin the splitter icon
+	local splitter_icons = belt_reskin.splitter_icon(tint)
+	try_assign(entities.splitter, "icons", splitter_icons)
+	try_assign(entities.splitter_item, "icons", splitter_icons)
+	try_assign(entities.splitter_recipe, "icons", splitter_icons)
 
-		-- And the recipe
-		if entities.belt_recipe then
-			entities.belt_recipe.icons = icons
-		end
-	end
+	-- Reskin the underground icon
+	local underground_icons = belt_reskin.underground_belt_icon(tint)
+	try_assign(entities.underground, "icons", underground_icons)
+	try_assign(entities.underground_item, "icons", underground_icons)
+	try_assign(entities.underground_recipe, "icons", underground_icons)
 
-	-- Reskin the Splitter
+	-- Reskin the splitter entity
 	if entities.splitter then
 		belt_reskin.splitter_sprite_set(entities.splitter, tint)
-
-		local icons = belt_reskin.splitter_icon(tint)
-		entities.splitter.icons = icons
-
-		-- And the item to match
-		if entities.splitter_item then
-			entities.splitter_item.icons = icons
-		end
-
-		-- And the recipe
-		if entities.splitter_recipe then
-			entities.splitter_recipe.icons = icons
-		end
 	end
 
-	-- Reskin the Underground
+	-- Reskin the underground entity
 	if entities.underground then
 		entities.underground.structure = belt_reskin.underground_belt_sprite_set(tint)
 
-		local icons = belt_reskin.underground_belt_icon(tint)
-		entities.underground.icons = icons
+		-- if entities.underground_30_item then
+		-- 	local icons_30 = table.deepcopy(icons)
+		-- 	icons_30[2] = {
+		-- 		icon = "__belt-reskin__/graphics/icons/underground-belt-30-mask.png",
+		-- 		icon_size = 64
+		-- 	}
 
-		-- And the item to match
-		if entities.underground_item then
-			entities.underground_item.icons = icons
-		end
-
-		-- And the recipe
-		if entities.underground_recipe then
-			entities.underground_recipe.icons = icons
-		end
+		-- 	entities.underground_30_item.icons = icons_30
+		-- end
 	end
 end
 
