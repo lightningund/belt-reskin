@@ -249,16 +249,32 @@ function belt_reskin.reskin_vanilla(entities, tint)
 	-- Reskin the underground entity
 	if entities.underground then
 		entities.underground.structure = belt_reskin.underground_belt_sprite_set(tint)
+	end
 
-		-- if entities.underground_30_item then
-		-- 	local icons_30 = table.deepcopy(icons)
-		-- 	icons_30[2] = {
-		-- 		icon = "__belt-reskin__/graphics/icons/underground-belt-30-mask.png",
-		-- 		icon_size = 64
-		-- 	}
+	-- Reskin the 5dims extended undergrounds
+	if entities.underground_30_item then
+		local icons_30 = table.deepcopy(underground_icons)
+		icons_30[3] = {
+			icon = "__belt-reskin__/graphics/icons/underground-belt-30-mask.png",
+			icon_size = 64
+		}
 
-		-- 	entities.underground_30_item.icons = icons_30
-		-- end
+		-- Technically not necessary since we already checked for existence but it looks better
+		try_assign(entities.underground_30_item, "icons", icons_30)
+		try_assign(entities.underground_30_recipe, "icons", icons_30)
+	end
+
+	-- Reskin the 5dims extendeder undergrounds
+	if entities.underground_50_item then
+		local icons_50 = table.deepcopy(underground_icons)
+		icons_50[3] = {
+			icon = "__belt-reskin__/graphics/icons/underground-belt-50-mask.png",
+			icon_size = 64
+		}
+
+		-- Technically not necessary since we already checked for existence but it looks better
+		try_assign(entities.underground_50_item, "icons", icons_50)
+		try_assign(entities.underground_50_recipe, "icons", icons_50)
 	end
 end
 

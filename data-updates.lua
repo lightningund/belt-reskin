@@ -106,6 +106,9 @@ for prefix, properties in pairs(tiers) do
 		belt_reskin.retint_modernized_loaders(entities, col)
 	end
 
+	-- 5d-fast-underground-belt-30-02
+	-- WHYYY
+
 	-- 5Dims
 	if mods["5dim_transport"] then
 		if properties.postfix then
@@ -118,6 +121,10 @@ for prefix, properties in pairs(tiers) do
 			entities["underground"] = data.raw["underground-belt"]["5d-underground-belt" .. properties.postfix]
 			entities["underground_item"] = data.raw["item"]["5d-underground-belt" .. properties.postfix]
 			entities["underground_recipe"] = data.raw["recipe"]["5d-underground-belt" .. properties.postfix]
+			entities["underground_30_item"] = data.raw["item"]["5d-underground-belt-30" .. properties.postfix]
+			entities["underground_30_recipe"] = data.raw["recipe"]["5d-underground-belt-30" .. properties.postfix]
+			entities["underground_50_item"] = data.raw["item"]["5d-underground-belt-50" .. properties.postfix]
+			entities["underground_50_recipe"] = data.raw["recipe"]["5d-underground-belt-50" .. properties.postfix]
 
 			belt_reskin.reskin_vanilla(entities, col)
 
