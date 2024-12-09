@@ -40,15 +40,15 @@ for prefix, properties in pairs(tiers) do
 	local entities = {
 		-- Vanilla
 		belt = data.raw["transport-belt"][prefix .. properties.suffix],
-		belt_item = data.raw["item"][prefix .. properties.suffix],
-		belt_recipe = data.raw["recipe"][prefix .. properties.suffix],
 		splitter = data.raw["splitter"][prefix .. "splitter"],
-		splitter_item = data.raw["item"][prefix .. "splitter"],
-		splitter_recipe = data.raw["recipe"][prefix .. "splitter"],
-		underground = data.raw["underground-belt"][prefix .. "underground-belt"],
-		underground_item = data.raw["item"][prefix .. "underground-belt"],
-		underground_recipe = data.raw["recipe"][prefix .. "underground-belt"]
+		underground = data.raw["underground-belt"][prefix .. "underground-belt"]
 	}
+
+	-- Regroup Vanilla Items
+	belt_reskin.regroup_vanilla(entities)
+
+	-- Reskin Vanilla entities and items
+	belt_reskin.reskin_vanilla(entities, col)
 
 	-- Miniloader
 	if mods["miniloader"] then
@@ -113,19 +113,12 @@ for prefix, properties in pairs(tiers) do
 	if mods["5dim_transport"] then
 		if properties.postfix then
 			entities["belt"] = data.raw["transport-belt"]["5d-transport-belt" .. properties.postfix]
-			entities["belt_item"] = data.raw["item"]["5d-transport-belt" .. properties.postfix]
-			entities["belt_recipe"] = data.raw["recipe"]["5d-transport-belt" .. properties.postfix]
 			entities["splitter"] = data.raw["splitter"]["5d-splitter" .. properties.postfix]
-			entities["splitter_item"] = data.raw["item"]["5d-splitter" .. properties.postfix]
-			entities["splitter_recipe"] = data.raw["recipe"]["5d-splitter" .. properties.postfix]
 			entities["underground"] = data.raw["underground-belt"]["5d-underground-belt" .. properties.postfix]
-			entities["underground_item"] = data.raw["item"]["5d-underground-belt" .. properties.postfix]
-			entities["underground_recipe"] = data.raw["recipe"]["5d-underground-belt" .. properties.postfix]
-			entities["underground_30_item"] = data.raw["item"]["5d-underground-belt-30" .. properties.postfix]
-			entities["underground_30_recipe"] = data.raw["recipe"]["5d-underground-belt-30" .. properties.postfix]
-			entities["underground_50_item"] = data.raw["item"]["5d-underground-belt-50" .. properties.postfix]
-			entities["underground_50_recipe"] = data.raw["recipe"]["5d-underground-belt-50" .. properties.postfix]
+			entities["underground_30"] = data.raw["underground-belt"]["5d-underground-belt-30" .. properties.postfix]
+			entities["underground_50"] = data.raw["underground-belt"]["5d-underground-belt-50" .. properties.postfix]
 
+			belt_reskin.regroup_vanilla(entities)
 			belt_reskin.reskin_vanilla(entities, col)
 
 			-- Loaders Modernized x 5Dims
@@ -146,12 +139,6 @@ for prefix, properties in pairs(tiers) do
 			end
 		end
 	end
-
-	-- Regroup Vanilla Items (temporary until this all gets moved into functions)
-	belt_reskin.regroup_vanilla(entities)
-
-	-- Reskin Vanilla entities and items
-	belt_reskin.reskin_vanilla(entities, col)
 end
 
 local v_loader = data.raw["loader-1x1"]["loader-1x1"]

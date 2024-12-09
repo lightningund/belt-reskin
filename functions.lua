@@ -186,6 +186,14 @@ local function retint_dir_sheets(ent, sheet_num, tint)
 	retint(ent.structure.direction_out.sheets[sheet_num], tint)
 end
 
+local function assign_icons(ent, icons)
+	if ent then
+		ent.icons = icons
+		try_assign(data.raw["item"][ent.name], "icons", icons)
+		try_assign(data.raw["recipe"][ent.name], "icons", icons)
+	end
+end
+
 local function regroup(item, subgroup, order)
 	if settings.startup["belt-reskin-regroup"].value then
 		if not data.raw["item-subgroup"][subgroup] then
@@ -215,31 +223,35 @@ local function regroup(item, subgroup, order)
 	end
 end
 
+local function regroup_name(name, subgroup, order)
+	regroup(data.raw["item"][name], subgroup, order)
+end
+
+local function regroup_ent(ent, subgroup, order)
+	if ent then
+		regroup_name(ent.name, subgroup, order)
+	end
+end
+
 function belt_reskin.regroup_vanilla(entities)
-	regroup(entities.belt_item, "belts", "a0")
-	regroup(entities.splitter_item, "splitters", "a1")
-	regroup(entities.underground_item, "underground-belts", "a2")
+	regroup_ent(entities.belt, "belts", "a0")
+	regroup_ent(entities.splitter, "splitters", "a1")
+	regroup_ent(entities.underground, "underground-belts", "a2")
 end
 
 -- For the vanilla items... and 5dims transport
 function belt_reskin.reskin_vanilla(entities, tint)
 	-- Reskin the belt icon
 	local belt_icons = belt_reskin.transport_belt_icon(tint)
-	try_assign(entities.belt, "icons", belt_icons)
-	try_assign(entities.belt_item, "icons", belt_icons)
-	try_assign(entities.belt_recipe, "icons", belt_icons)
+	assign_icons(entities.belt, belt_icons)
 
 	-- Reskin the splitter icon
 	local splitter_icons = belt_reskin.splitter_icon(tint)
-	try_assign(entities.splitter, "icons", splitter_icons)
-	try_assign(entities.splitter_item, "icons", splitter_icons)
-	try_assign(entities.splitter_recipe, "icons", splitter_icons)
+	assign_icons(entities.splitter, splitter_icons)
 
 	-- Reskin the underground icon
 	local underground_icons = belt_reskin.underground_belt_icon(tint)
-	try_assign(entities.underground, "icons", underground_icons)
-	try_assign(entities.underground_item, "icons", underground_icons)
-	try_assign(entities.underground_recipe, "icons", underground_icons)
+	assign_icons(entities.underground, underground_icons)
 
 	-- Reskin the splitter entity
 	if entities.splitter then
@@ -252,31 +264,27 @@ function belt_reskin.reskin_vanilla(entities, tint)
 	end
 
 	-- Reskin the 5dims extended undergrounds
-	if entities.underground_30_item then
+	if entities.underground_30 then
 		local icons_30 = table.deepcopy(underground_icons)
 		icons_30[3] = {
 			icon = "__belt-reskin__/graphics/icons/underground-belt-30-mask.png",
 			icon_size = 64
 		}
 
-		-- Technically not necessary since we already checked for existence but it looks better
-		try_assign(entities.underground_30_item, "icons", icons_30)
-		try_assign(entities.underground_30_recipe, "icons", icons_30)
-		regroup(entities.underground_30_item, "underground-belts-30", "a3")
+		assign_icons(entities.underground_30, icons_30)
+		regroup_ent(entities.underground_30, "underground-belts-30", "a3")
 	end
 
 	-- Reskin the 5dims extendeder undergrounds
-	if entities.underground_50_item then
+	if entities.underground_50 then
 		local icons_50 = table.deepcopy(underground_icons)
 		icons_50[3] = {
 			icon = "__belt-reskin__/graphics/icons/underground-belt-50-mask.png",
 			icon_size = 64
 		}
 
-		-- Technically not necessary since we already checked for existence but it looks better
-		try_assign(entities.underground_50_item, "icons", icons_50)
-		try_assign(entities.underground_50_recipe, "icons", icons_50)
-		regroup(entities.underground_50_item, "underground-belts-50", "a4")
+		assign_icons(entities.underground_50, icons_50)
+		regroup_ent(entities.underground_50, "underground-belts-50", "a4")
 	end
 end
 
