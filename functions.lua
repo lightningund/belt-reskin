@@ -262,6 +262,7 @@ function belt_reskin.reskin_vanilla(entities, tint)
 		-- Technically not necessary since we already checked for existence but it looks better
 		try_assign(entities.underground_30_item, "icons", icons_30)
 		try_assign(entities.underground_30_recipe, "icons", icons_30)
+		regroup(entities.underground_30_item, "underground-belts-30", "a3")
 	end
 
 	-- Reskin the 5dims extendeder undergrounds
@@ -275,6 +276,7 @@ function belt_reskin.reskin_vanilla(entities, tint)
 		-- Technically not necessary since we already checked for existence but it looks better
 		try_assign(entities.underground_50_item, "icons", icons_50)
 		try_assign(entities.underground_50_recipe, "icons", icons_50)
+		regroup(entities.underground_50_item, "underground-belts-50", "a4")
 	end
 end
 
