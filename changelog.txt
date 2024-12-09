@@ -4,7 +4,7 @@ Date: ????
   Changes:
     - Moved everything into data-final-fixes to make sure other mods don't overwrite our setup
   Major Features:
-    - Added 5Dims Transport support
+    - Added 5Dims Transport support (mostly)
   Minor Features:
     - Added better support for 5Dims x Loaders Modernized
 ---------------------------------------------------------------------------------------------------
