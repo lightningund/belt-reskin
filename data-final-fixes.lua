@@ -44,6 +44,11 @@ for prefix, properties in pairs(tiers) do
 		underground = data.raw["underground-belt"][prefix .. "underground-belt"]
 	}
 
+	if entities.belt then
+		local readers = entities.belt.belt_animation_set.belt_reader
+		belt_animation_sets[prefix .. properties.suffix].belt_reader = readers
+	end
+
 	-- Regroup Vanilla Items
 	belt_reskin.regroup_vanilla(entities)
 
@@ -117,6 +122,11 @@ for prefix, properties in pairs(tiers) do
 			entities["underground"] = data.raw["underground-belt"]["5d-underground-belt" .. properties.postfix]
 			entities["underground_30"] = data.raw["underground-belt"]["5d-underground-belt-30" .. properties.postfix]
 			entities["underground_50"] = data.raw["underground-belt"]["5d-underground-belt-50" .. properties.postfix]
+
+			if entities.belt then
+				local readers = entities.belt.belt_animation_set.belt_reader
+				belt_animation_sets[prefix .. properties.suffix].belt_reader = readers
+			end
 
 			belt_reskin.regroup_vanilla(entities)
 			belt_reskin.reskin_vanilla(entities, col)
